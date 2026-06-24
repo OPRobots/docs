@@ -28,6 +28,8 @@ jobs:
   
       - name: update-submodules
         uses: runsascoded/update-submodules@gha0.0.2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: mkdocs-build
         run: mkdocs build
