@@ -18,25 +18,35 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # Clone the documentation repositories
-  update-submodules:
+  mkdocs-deploy:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions/checkout@v7
+      - name: Checkout Repository
+        uses: actions/checkout@v7
   
       - name: Git Submodule Update
         run: |
           git pull --recurse-submodules
           git submodule update --remote --recursive
+
+      - name: Install Python3
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+
+      - name: Install Mkdocs
+        run: |
+          pip install -r requirements.txt
+          
+      - name: Build MkDocs
+        run: mkdocs build
   
       - name: Commit update
         run: |
           git config --global user.name 'Pandaman'
           git config --global user.email 'bot@noreply.github.com'
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-          git commit -am "Auto updated submodule references" && git push || echo "No changes to commit"
-  
-     # - name: mkdocs-build
-     #   run: mkdocs build
+          git commit -am "Auto updated submodule references & MkDocs build" && git push || echo "No changes to commit"
