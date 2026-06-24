@@ -84,3 +84,26 @@
 .mermaid {
   text-align: center;
 }
+
+/* ==========================================================================
+   Header breadcrumb — visual hierarchy
+   ========================================================================== */
+
+.header-breadcrumb-base {
+  font-size: .85rem;
+  opacity: .65;
+}
+
+.header-breadcrumb-sep {
+  opacity: .35;
+  margin: 0 .1rem;
+}
+
+.header-breadcrumb-section {
+  font-size: .9rem;
+}
+
+.header-breadcrumb-page {
+  font-size: 1rem;
+  font-weight: 600;
+}
