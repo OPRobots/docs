@@ -26,10 +26,17 @@ jobs:
     steps:
       - uses: actions/checkout@v7
   
-      - name: update-submodules
-        uses: runsascoded/update-submodules@gha0.0.2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: mkdocs-build
-        run: mkdocs build
+      - name: Git Submodule Update
+        run: |
+          git pull --recurse-submodules
+          git submodule update --remote --recursive
+  
+      - name: Commit update
+        run: |
+          git config --global user.name 'Pandaman'
+          git config --global user.email 'bot@noreply.github.com'
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          git commit -am "Auto updated submodule references" && git push || echo "No changes to commit"
+  
+     # - name: mkdocs-build
+     #   run: mkdocs build
