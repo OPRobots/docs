@@ -1,0 +1,4 @@
+[submodule "docs/robots/ZoroBot3"]
+	path = docs/robots/ZoroBot3
+	url = https://github.com/OPRobots/ZoroBot3
+	branch = develop
