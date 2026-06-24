@@ -1,0 +1,2563 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentación técnica del equipo OPROBOTS de robótica">
+      
+      
+        <meta name="author" content="robotaleh">
+      
+      
+        <link rel="canonical" href="https://docs.oprobots.org/robots/ZoroBot3/scripts/turn-profiles/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/imgs/favicon/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+<link rel="apple-touch-icon" sizes="180x180" href="assets/imgs/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/imgs/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/imgs/favicon/favicon-16x16.png">
+<link rel="manifest" href="assets/imgs/favicon/site.webmanifest">
+<link rel="mask-icon" href="assets/imgs/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="assets/imgs/favicon/favicon.ico">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="msapplication-config" content="assets/imgs/favicon/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+    
+      
+        <title>Micromouse Sinusoidal Turn Profiles - OPROBOTS Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/css/custom.css">
+    
+      <link rel="stylesheet" href="../../../../assets/css/mermaid-zoom.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="OPROBOTS Documentation">
+<meta property="og:description" content="Documentación técnica del equipo OPROBOTS de robótica">
+<meta property="og:image" content="https://docs.oprobots.org/assets/opr_logo.png">
+<meta property="og:image:width" content="2134">
+<meta property="og:image:height" content="1021">
+<meta property="og:image:alt" content="OPROBOTS — Equipo de robótica">
+<meta name="twitter:card" content="summary_large_image">
+<script>
+(function() {
+  /* Intercept Element.prototype.attachShadow to capture closed shadow roots
+     for Mermaid diagram elements. This MUST run before Material's bundle. */
+  if (window.__mermaidZoomPatched) return;
+  window.__mermaidZoomPatched = true;
+
+  var originalAttachShadow = Element.prototype.attachShadow;
+  var shadowMap = new WeakMap();
+  window.__mermaidShadowMap = shadowMap;
+
+  Element.prototype.attachShadow = function (options) {
+    var shadow = originalAttachShadow.call(this, options);
+    if (this.classList && this.classList.contains("mermaid")) {
+      shadowMap.set(this, shadow);
+    }
+    return shadow;
+  };
+})();
+</script>
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#micromouse-sinusoidal-turn-profiles" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../../../.." title="OPROBOTS Documentation" class="md-header__button md-logo" aria-label="OPROBOTS Documentation" data-md-component="logo">
+      
+  <img src="../../../../assets/opr_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OPROBOTS Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Micromouse Sinusoidal Turn Profiles
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="custom"  aria-label="Modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="custom"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+<!-- OPRobots subtle link -->
+<div style="text-align: center; padding: 5px 0; font-size: .75rem; background: #fafafa; border-bottom: 1px solid rgba(0,0,0,.06);">
+  <a href="https://oprobots.org" style="color: #1b176b; text-decoration: none; font-weight: 500;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+    ← Volver a OPRobots.org
+  </a>
+</div>
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="OPROBOTS Documentation" class="md-nav__button md-logo" aria-label="OPROBOTS Documentation" data-md-component="logo">
+      
+  <img src="../../../../assets/opr_logo.png" alt="logo">
+
+    </a>
+    OPROBOTS Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Robots
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Robots
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ZoroBot3
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ZoroBot3
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ZoroBot3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ZoroBot3/01-hardware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hardware
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ZoroBot3/02-software-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitectura Software
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ZoroBot3/03-sensors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sensores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ZoroBot3/04-movement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Movimiento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ZoroBot3/05-floodfill/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Floodfill
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ZoroBot3/06-control-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Control PID
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ZoroBot3/07-menu-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Menú
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ZoroBot3/08-debug-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Debug
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ZoroBot3/09-calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calibración
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ZoroBot3/10-eeprom/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EEPROM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ZoroBot3/11-encoders-gyro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Encoders y Giroscopio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ZoroBot3/12-battery-leds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batería y LEDs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ZoroBot3/13-simulator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Simulador
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ZoroBot3/14-kinematics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cinemática
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ZoroBot3/15-known-issues/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Problemas Conocidos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#indice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Índice
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#descripcion-general" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Descripción general
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquitectura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arquitectura
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Arquitectura">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clases-principales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Clases principales
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sistema-de-coordenadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sistema de coordenadas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flujo-de-generacion-de-un-perfil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flujo de generación de un perfil
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Flujo de generación de un perfil">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-simulatorslalomentry-exit-radius-linear_velocity-shiftnone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Simulator.slalom(entry, exit, radius, linear_velocity, shift=None)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-turn_profileangle-_max-_max-dt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. turn_profile(angle, ω_max, α_max, dt)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-complete_profileprofile-entry_angle-radius-v-robot-dt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. complete_profile(profile, entry_angle, radius, v, robot, dt)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-complete_slalom_profileprofile-entry-exit-robot-maze-shiftnone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. complete_slalom_profile(profile, entry, exit, robot, maze, shift=None)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-turn_shiftentry-exit-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. turn_shift(entry, exit, profile)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#convencion-de-signos-de-start-y-end" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Convención de signos de .start y .end
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uso-del-notebook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Uso del notebook
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Uso del notebook">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requisitos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requisitos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejecucion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejecución
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#personalizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Personalización
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#robot-fisico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Robot físico
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estrategias-de-velocidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Estrategias de velocidad
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tipos-de-giro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tipos de giro
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tipos de giro">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#giros-principales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Giros principales
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lineas-de-entrada-y-salida" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Líneas de entrada y salida
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#encadenamiento-de-giros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Encadenamiento de giros
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Encadenamiento de giros">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#caso-1-linea-compartida-misma-recta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caso 1: Línea compartida (misma recta)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#caso-2-lineas-diferentes-se-requiere-trayectoria-intermedia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caso 2: Líneas diferentes — se requiere trayectoria intermedia
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tabla-resumen-de-offsets-para-el-firmware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tabla resumen de offsets para el firmware
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parametros-de-salida" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parámetros de salida
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#problemas-conocidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problemas conocidos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Problemas conocidos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-move_180-asimetria-en-start-end" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. MOVE_180: Asimetría en .start / .end
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-move_to_135-move_from_45_180-referencia-de-salida-incorrecta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. MOVE_TO_135 / MOVE_FROM_45_180: Referencia de salida incorrecta
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-dependencia-de-shift-manual-para-180" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Dependencia de shift manual para 180°
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-limitacion-de-turn_shift-con-lineas-paralelas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Limitación de turn_shift() con líneas paralelas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#archivos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Archivos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Archivos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#micromouse_sinusoidal_turn_profiles_auxpy-biblioteca-principal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        micromouse_sinusoidal_turn_profiles_aux.py — Biblioteca principal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#turn-profilesipynb-notebook-principal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        turn-profiles.ipynb — Notebook principal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verify_profilespy-verificacion-de-casos-problematicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        verify_profiles.py — Verificación de casos problemáticos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deep_analysispy-trazado-paso-a-paso-de-la-generacion-de-perfiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        deep_analysis.py — Trazado paso a paso de la generación de perfiles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analyze_all_pairspy-analisis-exhaustivo-de-encadenamiento-de-giros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        analyze_all_pairs.py — Análisis exhaustivo de encadenamiento de giros
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test_new_exitpy-prueba-de-correccion-de-geometria-para-move_180" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        test_new_exit.py — Prueba de corrección de geometría para MOVE_180
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flujo-de-trabajo-tipico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flujo de trabajo típico
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dependencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependencias
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Referencias
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="micromouse-sinusoidal-turn-profiles">Micromouse Sinusoidal Turn Profiles</h1>
+<p>Generador de perfiles de giro con aceleración angular sinusoidal para un robot micromouse de alto rendimiento (ZoroBot3).</p>
+<h2 id="indice">Índice</h2>
+<ul>
+<li><a href="#descripción-general">Descripción general</a></li>
+<li><a href="#arquitectura">Arquitectura</a></li>
+<li><a href="#sistema-de-coordenadas">Sistema de coordenadas</a></li>
+<li><a href="#flujo-de-generación-de-un-perfil">Flujo de generación de un perfil</a></li>
+<li><a href="#estructuras-de-datos-clave">Estructuras de datos clave</a></li>
+<li><a href="#convención-de-signos-de-start-y-end">Convención de signos de <code>.start</code> y <code>.end</code></a></li>
+<li><a href="#uso-del-notebook">Uso del notebook</a></li>
+<li><a href="#estrategias-de-velocidad">Estrategias de velocidad</a></li>
+<li><a href="#tipos-de-giro">Tipos de giro</a></li>
+<li><a href="#parámetros-de-salida">Parámetros de salida</a></li>
+<li><a href="#problemas-conocidos">Problemas conocidos</a></li>
+<li><a href="#archivos">Archivos</a></li>
+</ul>
+<hr />
+<h2 id="descripcion-general">Descripción general</h2>
+<p>Este sistema genera perfiles de trayectoria para giros slalom alrededor de postes en un laberinto de micromouse. El perfil usa <strong>aceleración angular sinusoidal</strong> para producir transiciones suaves (jerk limitado), lo que minimiza el deslizamiento de las ruedas y el estrés mecánico.</p>
+<p>Cada perfil describe:
+- La trayectoria <code>(x, y)</code> del centro del robot
+- Las trayectorias de los bordes izquierdo y derecho del robot
+- El margen de seguridad respecto al poste
+- Las fuerzas centrífuga y de aceleración angular
+- Las distancias de entrada/salida necesarias para encadenar giros</p>
+<h2 id="arquitectura">Arquitectura</h2>
+<div class="highlight"><pre><span></span><code>micromouse_sinusoidal_turn_profiles_aux.py
+│
+├── Maze               — dimensiones de la celda y poste
+├── RobotPhysics       — masa, inercia, geometría del robot
+├── Line               — recta definida por punto de referencia y ángulo
+├── lines_intersection — intersección de dos rectas
+├── TurnProfile        — perfil de giro básico (in-place)
+├── SlalomTurnProfile  — perfil de giro slalom con entrada/salida
+├── turn_profile()     — genera perfil de velocidad angular sinusoidal
+├── complete_profile() — integra velocidades → posiciones y fuerzas
+├── complete_slalom_profile() — alinea con líneas de entrada/salida
+├── turn_shift()       — calcula desplazamiento para alinear perfil
+└── Simulator          — orquesta la generación de perfiles
+</code></pre></div>
+<h3 id="clases-principales">Clases principales</h3>
+<table>
+<thead>
+<tr>
+<th>Clase</th>
+<th>Responsabilidad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Maze</code></td>
+<td>Dimensiones físicas: <code>cell</code> (0.18m), <code>post</code> (0.012m)</td>
+</tr>
+<tr>
+<td><code>RobotPhysics</code></td>
+<td>Parámetros del robot: masa, inercia, ancho, separación de ruedas, velocidad angular máxima</td>
+</tr>
+<tr>
+<td><code>Line</code></td>
+<td>Modela una línea por su punto de referencia <code>(x, y)</code> y su <code>angle</code>. Calcula <code>slope</code> e <code>intercept</code>.</td>
+</tr>
+<tr>
+<td><code>Simulator</code></td>
+<td>Punto de entrada. Métodos: <code>inplace()</code> (giro sin desplazamiento) y <code>slalom()</code> (giro con trayectoria curva)</td>
+</tr>
+<tr>
+<td><code>SlalomTurnProfile</code></td>
+<td>Contiene el perfil generado más las líneas de entrada/salida. Métodos: <code>describe()</code>, <code>describe_profile()</code>, <code>plot_trajectory()</code>, <code>plot_forces()</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="sistema-de-coordenadas">Sistema de coordenadas</h2>
+<p>Las coordenadas de entrada/salida se definen en <strong>unidades de celda</strong> relativas al poste:</p>
+<div class="highlight"><pre><span></span><code>                Norte
+              (0, +0.5) 
+                  |
+Oeste (-0.5, 0) --+-- (+0.5, 0) Este
+                  |
+              (0, -0.5)
+                 Sur
+</code></pre></div>
+<ul>
+<li><code>(0, 0)</code> = centro del poste</li>
+<li><code>(0, -0.5)</code> = centro del borde de la celda sur</li>
+<li><code>(+0.5, 0)</code> = centro del borde de la celda este</li>
+<li>Una unidad de celda = 0.18 m (se multiplica dentro de <code>Simulator.slalom()</code>)</li>
+</ul>
+<p>Los ángulos siguen la convención matemática estándar:
+- <code>0</code> = Este (+x)
+- <code>π/2</code> = Norte (+y)
+- <code>π</code> = Oeste (-x)
+- <code>3π/2</code> = Sur (-y)</p>
+<h2 id="flujo-de-generacion-de-un-perfil">Flujo de generación de un perfil</h2>
+<h3 id="1-simulatorslalomentry-exit-radius-linear_velocity-shiftnone">1. <code>Simulator.slalom(entry, exit, radius, linear_velocity, shift=None)</code></h3>
+<ol>
+<li>Convierte coordenadas de celda a metros</li>
+<li>Calcula el ángulo total del giro: <code>angle = exit.angle - entry.angle</code></li>
+<li>Calcula la fuerza centrífuga necesaria: <code>F = m·v² / (2·r)</code></li>
+<li>Calcula la velocidad angular máxima: <code>ω_max = v / r</code> (limitada por <code>robot.max_angular_velocity</code>)</li>
+<li>Calcula la aceleración angular máxima: <code>α_max = F · d_ruedas / I</code></li>
+<li>Verifica que la transición sinusoidal pueda alcanzar <code>ω_max</code></li>
+<li>Genera el perfil con <code>turn_profile()</code></li>
+<li>Completa el perfil con <code>complete_profile()</code></li>
+<li>Alinea el perfil con <code>complete_slalom_profile()</code></li>
+</ol>
+<h3 id="2-turn_profileangle-_max-_max-dt">2. <code>turn_profile(angle, ω_max, α_max, dt)</code></h3>
+<p>Genera un perfil de velocidad angular con tres fases:</p>
+<div class="highlight"><pre><span></span><code>         ω_max  ───────────────
+               ╱                ╲
+             ╱                    ╲
+    0  ─────                      ─────
+    |--transition--|--arc--|--transition--|
+</code></pre></div>
+<ul>
+<li><strong>Transición de entrada</strong>: sinusoidal, <code>ω(t) = ω_max · sin(t/transition · π/2)</code></li>
+<li><strong>Arco constante</strong>: <code>ω(t) = ω_max</code> (velocidad angular máxima)</li>
+<li><strong>Transición de salida</strong>: sinusoidal decreciente</li>
+</ul>
+<p>Parámetros calculados:
+- <code>duration = ω_max / α_max · π</code>
+- <code>transition_angle = duration · ω_max / π</code>
+- <code>arc = (|angle| - 2·transition_angle) / ω_max</code> (duración del arco)
+- <code>transition = duration / 2</code> (duración de cada transición)</p>
+<h3 id="3-complete_profileprofile-entry_angle-radius-v-robot-dt">3. <code>complete_profile(profile, entry_angle, radius, v, robot, dt)</code></h3>
+<p>Integra las velocidades para obtener posiciones, ángulos y fuerzas:</p>
+<ul>
+<li><strong>Ángulo</strong>: <code>angle[t] = Σ(ω[t]·dt) + entry_angle</code></li>
+<li><strong>Posición X</strong>: <code>x[t] = Σ(v·cos(angle[t])·dt)</code></li>
+<li><strong>Posición Y</strong>: <code>y[t] = Σ(v·sin(angle[t])·dt)</code></li>
+<li><strong>Fuerza centrífuga</strong>: <code>Fc = m·v·ω / 2</code></li>
+<li><strong>Fuerza aceleración angular</strong>: <code>Fα = |I·α / d_ruedas|</code></li>
+<li><strong>Fuerza total</strong>: <code>F = √(Fc² + Fα²)</code></li>
+</ul>
+<h3 id="4-complete_slalom_profileprofile-entry-exit-robot-maze-shiftnone">4. <code>complete_slalom_profile(profile, entry, exit, robot, maze, shift=None)</code></h3>
+<ol>
+<li><strong>Calcula el desplazamiento</strong> (<code>shift</code>):</li>
+<li>Si <code>shift=None</code>: usa <code>turn_shift()</code> automáticamente</li>
+<li>Si se proporciona <code>shift</code> manual: <code>shift_final = shift + entry.reference</code></li>
+<li><strong>Aplica el desplazamiento</strong> a todas las coordenadas x,y</li>
+<li><strong>Calcula los bordes del robot</strong>: añade/substrae <code>robot.width/2</code> perpendicular a la trayectoria</li>
+<li><strong>Calcula el margen al poste</strong>: distancia mínima de los bordes al poste más cercano</li>
+</ol>
+<h3 id="5-turn_shiftentry-exit-profile">5. <code>turn_shift(entry, exit, profile)</code></h3>
+<div class="highlight"><pre><span></span><code><span class="n">expected</span> <span class="o">=</span> <span class="n">lines_intersection</span><span class="p">(</span><span class="n">entry</span><span class="p">,</span> <span class="n">exit</span><span class="p">)</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">Line</span><span class="p">(</span><span class="n">profile</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">profile</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="n">entry</span><span class="o">.</span><span class="n">angle</span><span class="p">)</span>
+<span class="n">stop</span>  <span class="o">=</span> <span class="n">Line</span><span class="p">(</span><span class="n">profile</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">profile</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="n">exit</span><span class="o">.</span><span class="n">angle</span><span class="p">)</span>
+<span class="n">actual</span> <span class="o">=</span> <span class="n">lines_intersection</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">)</span>
+<span class="k">return</span> <span class="n">expected</span> <span class="o">-</span> <span class="n">actual</span>
+</code></pre></div>
+<p>Alinea el "centro de giro" del perfil con el punto de intersección de las líneas de entrada y salida del laberinto.</p>
+<p><strong>Limitación</strong>: solo funciona cuando las líneas de entrada y salida NO son paralelas. Para giros de 180° (líneas paralelas), se requiere un <code>shift</code> manual.</p>
+<h2 id="convencion-de-signos-de-start-y-end">Convención de signos de <code>.start</code> y <code>.end</code></h2>
+<p>Los valores <code>.start</code> y <code>.end</code> representan la distancia (en mm) desde el primer/último punto del perfil hasta el <strong>sensing point</strong> (línea divisora de casillas) de entrada/salida, <strong>con signo</strong>. El signo indica si el perfil <em>reduce</em> o <em>aumenta</em> el tramo recto anterior/posterior:</p>
+<table>
+<thead>
+<tr>
+<th>Efecto sobre el tramo recto</th>
+<th><code>.start</code></th>
+<th><code>.end</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Negativo</strong> → reduce el tramo recto anterior/posterior</td>
+<td>El perfil empieza <strong>antes</strong> del sensing point (se acerca a él; el tramo recto previo se acorta)</td>
+<td>El perfil termina <strong>después</strong> del sensing point (ya lo pasó; el tramo recto posterior se acorta)</td>
+</tr>
+<tr>
+<td><strong>Positivo</strong> → aumenta el tramo recto anterior/posterior</td>
+<td>El perfil empieza <strong>después</strong> del sensing point (ya lo pasó; el tramo recto previo se alarga)</td>
+<td>El perfil termina <strong>antes</strong> del sensing point (aún no llega; el tramo recto posterior se alarga)</td>
+</tr>
+</tbody>
+</table>
+<p>El punto de referencia es siempre la <strong>línea divisoria</strong> entre casillas (sensing point), no el centro del poste ni la línea central del pasillo.</p>
+<ul>
+<li><strong><code>.start</code> negativo</strong> (<code>-68.8 mm</code>): el perfil comienza 68.8 mm <strong>antes</strong> de cruzar la línea divisoria de entrada → el tramo recto de aproximación se <strong>reduce</strong> en 68.8 mm porque el robot empieza a girar antes de llegar a ella.</li>
+<li><strong><code>.start</code> positivo</strong> (<code>+47.9 mm</code>): el perfil comienza 47.9 mm <strong>después</strong> de cruzar la línea divisoria de entrada → el tramo recto de aproximación se <strong>alarga</strong> en 47.9 mm porque el robot ya ha entrado en la celda cuando empieza a girar.</li>
+<li><strong><code>.end</code> negativo</strong> (<code>-68.8 mm</code>): el perfil termina 68.8 mm <strong>después</strong> de cruzar la línea divisoria de salida → el tramo recto posterior se <strong>reduce</strong> en 68.8 mm porque el robot ya ha salido de la celda cuando termina el giro.</li>
+<li><strong><code>.end</code> positivo</strong> (<code>+47.9 mm</code>): el perfil termina 47.9 mm <strong>antes</strong> de cruzar la línea divisoria de salida → el tramo recto posterior se <strong>alarga</strong> en 47.9 mm porque el robot termina el giro antes de llegar a ella.</li>
+</ul>
+<blockquote>
+<p><strong>Regla mnemotécnica</strong>: negativo = el perfil se <em>come</em> parte del tramo recto (lo reduce); positivo = el perfil <em>deja espacio</em> antes/después del sensing point (lo aumenta).</p>
+</blockquote>
+<p>El signo se determina comparando la distancia del primer punto del perfil con la del punto siguiente (para <code>.start</code>), o la del último punto con la del punto anterior (para <code>.end</code>). Si la distancia al sensing point disminuye → el robot se acerca a él (signo negativo para <code>.start</code>, positivo para <code>.end</code>); si aumenta → se aleja (signo positivo para <code>.start</code>, negativo para <code>.end</code>).</p>
+<h2 id="uso-del-notebook">Uso del notebook</h2>
+<h3 id="requisitos">Requisitos</h3>
+<div class="highlight"><pre><span></span><code><span class="n">pip</span> <span class="n">install</span> <span class="n">ipykernel</span> <span class="n">numpy</span> <span class="n">pandas</span> <span class="n">matplotlib</span>
+</code></pre></div>
+<p>En caso de usar Arch Linux, instalar los paquetes del sistema:
+<div class="highlight"><pre><span></span><code><span class="n">paru</span> <span class="o">-</span><span class="n">S</span> <span class="n">python</span><span class="o">-</span><span class="n">ipykernel</span> <span class="n">python</span><span class="o">-</span><span class="n">numpy</span> <span class="n">python</span><span class="o">-</span><span class="n">pandas</span> <span class="n">python</span><span class="o">-</span><span class="n">matplotlib</span>
+</code></pre></div></p>
+<h3 id="ejecucion">Ejecución</h3>
+<p>Abrir <code>turn-profiles.ipynb</code> en Jupyter y ejecutar todas las celdas en orden:</p>
+<ol>
+<li><strong>Setup</strong> (celda 2): define el laberinto, robot y simulador</li>
+<li><strong>Definición de perfiles</strong> (celda 5): genera todos los perfiles para cada velocidad</li>
+<li><strong>Visualización</strong> (celdas 8-18): muestra trayectorias y genera estructuras C</li>
+</ol>
+<h3 id="personalizacion">Personalización</h3>
+<p>Para añadir una nueva velocidad o modificar parámetros:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># En la celda 5, añadir:</span>
+<span class="n">nueva_velocidad90</span> <span class="o">=</span> <span class="n">simulate</span><span class="o">.</span><span class="n">slalom</span><span class="p">(</span>
+    <span class="n">entry</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>      <span class="c1"># Entrada: sur, rumbo este</span>
+    <span class="n">exit</span><span class="o">=</span><span class="p">(</span><span class="mf">.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span>      <span class="c1"># Salida: este, rumbo norte</span>
+    <span class="n">radius</span><span class="o">=</span><span class="mf">0.135</span><span class="p">,</span>            <span class="c1"># Radio de giro (m)</span>
+    <span class="n">linear_velocity</span><span class="o">=</span><span class="mf">2.0</span>      <span class="c1"># Velocidad lineal (m/s)</span>
+<span class="p">)</span>
+</code></pre></div>
+<h3 id="robot-fisico">Robot físico</h3>
+<p>Parámetros actuales del robot:</p>
+<table>
+<thead>
+<tr>
+<th>Parámetro</th>
+<th>Valor</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Masa</td>
+<td>0.070 kg</td>
+<td>Masa total del robot</td>
+</tr>
+<tr>
+<td>Momento de inercia</td>
+<td>8.75×10⁻⁵ kg·m²</td>
+<td>I = m·r²/2 (disco)</td>
+</tr>
+<tr>
+<td>Ancho</td>
+<td>0.0702 m</td>
+<td>Ancho total</td>
+</tr>
+<tr>
+<td>Separación ruedas</td>
+<td>0.062 m</td>
+<td>Distancia entre ruedas</td>
+</tr>
+<tr>
+<td>ω_max</td>
+<td>40 rad/s</td>
+<td>Velocidad angular máxima</td>
+</tr>
+</tbody>
+</table>
+<h2 id="estrategias-de-velocidad">Estrategias de velocidad</h2>
+<p>Cada estrategia define velocidades lineales crecientes para el mismo conjunto de giros:</p>
+<table>
+<thead>
+<tr>
+<th>Estrategia</th>
+<th>v_90 (m/s)</th>
+<th>v_180 (m/s)</th>
+<th>v_45 (m/s)</th>
+<th>v_135 (m/s)</th>
+<th>v_45to45 (m/s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EXPLORE</td>
+<td>0.800</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>NORMAL</td>
+<td>1.696</td>
+<td>1.350</td>
+<td>1.644</td>
+<td>1.118</td>
+<td>0.955</td>
+</tr>
+<tr>
+<td>MEDIUM</td>
+<td>1.932</td>
+<td>1.575</td>
+<td>1.865</td>
+<td>1.305</td>
+<td>1.114</td>
+</tr>
+<tr>
+<td>FAST</td>
+<td>2.220</td>
+<td>1.800</td>
+<td>2.146</td>
+<td>1.491</td>
+<td>1.273</td>
+</tr>
+<tr>
+<td>SUPER</td>
+<td>2.490</td>
+<td>2.025</td>
+<td>2.404</td>
+<td>1.678</td>
+<td>1.432</td>
+</tr>
+<tr>
+<td>HAKI</td>
+<td>2.745</td>
+<td>2.250</td>
+<td>2.647</td>
+<td>1.864</td>
+<td>1.591</td>
+</tr>
+</tbody>
+</table>
+<p>Las velocidades más altas producen fuerzas laterales mayores; el radio de giro y la velocidad deben equilibrarse para no superar los límites de fricción.</p>
+<h2 id="tipos-de-giro">Tipos de giro</h2>
+<h3 id="giros-principales">Giros principales</h3>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Ángulo</th>
+<th>Entry</th>
+<th>Exit</th>
+<th>Radio (m)</th>
+<th>Notas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>MOVE_90</strong></td>
+<td>90°</td>
+<td><code>(0, -.5, 0)</code></td>
+<td><code>(.5, 0, π/2)</code></td>
+<td>0.135</td>
+<td>Giro estándar en L</td>
+</tr>
+<tr>
+<td><strong>MOVE_180</strong></td>
+<td>180°</td>
+<td><code>(0, -.5, 0)</code></td>
+<td><code>(0, .5, π)</code></td>
+<td>0.090</td>
+<td>Giro en U. <strong>Usa shift manual</strong></td>
+</tr>
+<tr>
+<td><strong>MOVE_TO_45</strong></td>
+<td>45°</td>
+<td><code>(0, -.5, 0)</code></td>
+<td><code>(.5, 0, π/4)</code></td>
+<td>0.120</td>
+<td>Giro de 45°</td>
+</tr>
+<tr>
+<td><strong>MOVE_TO_135</strong></td>
+<td>135°</td>
+<td><code>(0, -.5, 0)</code></td>
+<td><code>(0, .5, 3π/4)</code></td>
+<td>0.07456</td>
+<td>Giro de 135°</td>
+</tr>
+<tr>
+<td><strong>MOVE_45_TO_45</strong></td>
+<td>90°</td>
+<td><code>(0, -.5, π/4)</code></td>
+<td><code>(0, .5, 3π/4)</code></td>
+<td>0.06364</td>
+<td>Giro diagonal-diagonal</td>
+</tr>
+<tr>
+<td><strong>MOVE_FROM_45</strong></td>
+<td>45°</td>
+<td><code>(0, -.5, π/4)</code></td>
+<td><code>(.5, 0, π/2)</code></td>
+<td>0.120</td>
+<td>Complementario de TO_45</td>
+</tr>
+<tr>
+<td><strong>MOVE_FROM_45_180</strong></td>
+<td>135°</td>
+<td><code>(0, -.5, π/4)</code></td>
+<td><code>(0, .5, π)</code></td>
+<td>0.07456</td>
+<td>Complementario de TO_135</td>
+</tr>
+</tbody>
+</table>
+<h3 id="lineas-de-entrada-y-salida">Líneas de entrada y salida</h3>
+<p>Cada giro se define sobre dos líneas del laberinto (los ejes centrales de los pasillos). Todas las entradas están al <strong>sur</strong> del poste; las salidas al <strong>este</strong> o al <strong>norte</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Línea</th>
+<th>Ecuación</th>
+<th>Dirección</th>
+<th>Tipo</th>
+<th>Usada por</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>E-H</strong> (Entry Horizontal)</td>
+<td><code>y = -90 mm</code></td>
+<td>Este (0°)</td>
+<td>Entrada</td>
+<td>MOVE_90, MOVE_180, MOVE_TO_45, MOVE_TO_135</td>
+</tr>
+<tr>
+<td><strong>E-D</strong> (Entry Diagonal)</td>
+<td><code>y = x - 90 mm</code></td>
+<td>Noreste (45°)</td>
+<td>Entrada</td>
+<td>MOVE_45_TO_45, MOVE_FROM_45, MOVE_FROM_45_180</td>
+</tr>
+<tr>
+<td><strong>X-V</strong> (Exit Vertical)</td>
+<td><code>x = 90 mm</code></td>
+<td>Norte (90°)</td>
+<td>Salida</td>
+<td>MOVE_90, MOVE_FROM_45</td>
+</tr>
+<tr>
+<td><strong>X-H</strong> (Exit Horizontal)</td>
+<td><code>y = 90 mm</code></td>
+<td>Oeste (180°)</td>
+<td>Salida</td>
+<td>MOVE_180, MOVE_FROM_45_180</td>
+</tr>
+<tr>
+<td><strong>X-D</strong> (Exit Diagonal NE)</td>
+<td><code>y = x - 90 mm</code></td>
+<td>Noreste (45°)</td>
+<td>Salida</td>
+<td>MOVE_TO_45</td>
+</tr>
+<tr>
+<td><strong>X-Dnw</strong> (Exit Diagonal NW)</td>
+<td><code>y = -x + 90 mm</code></td>
+<td>Noroeste (135°)</td>
+<td>Salida</td>
+<td>MOVE_TO_135, MOVE_45_TO_45</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Nota</strong>: X-D (salida de MOVE_TO_45) es exactamente la misma línea que E-D (entrada de los giros diagonales). Esta es la <strong>única</strong> coincidencia entre una línea de salida y una de entrada.</p>
+</blockquote>
+<h3 id="encadenamiento-de-giros">Encadenamiento de giros</h3>
+<p>Para encadenar dos giros A→B, la línea de salida de A debe conectar geométricamente con la línea de entrada de B. Se distinguen dos casos:</p>
+<h4 id="caso-1-linea-compartida-misma-recta">Caso 1: Línea compartida (misma recta)</h4>
+<p>La salida de A y la entrada de B están en <strong>la misma línea</strong> geométrica. Solo ocurre con X-D = E-D (<code>y = x - 90 mm</code>):</p>
+<table>
+<thead>
+<tr>
+<th>Giro A</th>
+<th>Giro B</th>
+<th>Gap físico</th>
+<th>Segmento recto necesario</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MOVE_TO_45</td>
+<td>MOVE_45_TO_45</td>
+<td>34.1 mm</td>
+<td>34.1 mm recto diagonal</td>
+</tr>
+<tr>
+<td>MOVE_TO_45</td>
+<td>MOVE_FROM_45</td>
+<td>18.9 mm</td>
+<td>18.9 mm recto diagonal</td>
+</tr>
+<tr>
+<td>MOVE_TO_45</td>
+<td>MOVE_FROM_45_180</td>
+<td>25.1 mm</td>
+<td>25.1 mm recto diagonal</td>
+</tr>
+</tbody>
+</table>
+<p>En los tres casos, los puntos de referencia de salida de A <code>(90, 0) mm</code> y de entrada de B <code>(0, -90) mm</code> están separados por <code>CELL_HALF_DIAGONAL = 127.28 mm</code> sobre la misma diagonal. Los offsets <code>.end</code> y <code>.start</code> posicionan los puntos físicos del perfil a lo largo de esta línea, dejando gaps pequeños (19-34 mm) que deben recorrerse en recto.</p>
+<h4 id="caso-2-lineas-diferentes-se-requiere-trayectoria-intermedia">Caso 2: Líneas diferentes — se requiere trayectoria intermedia</h4>
+<p>Para todos los demás 39 pares, la línea de salida y la de entrada son <strong>diferentes</strong>. La conexión requiere navegar por la geometría del laberinto. Se han identificado 7 combinaciones distintas de líneas:</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Salida de A</th>
+<th>Entrada de B</th>
+<th>Relación</th>
+<th>Distancia entre refs</th>
+<th>Conexión necesaria</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>X-Dnw (<code>y=-x+90</code>)</td>
+<td>E-H (<code>y=-90</code>)</td>
+<td>⊥ (45°)</td>
+<td>127.28 mm</td>
+<td>Recta diagonal CELL_HALF_DIAGONAL (127.28 mm)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>X-Dnw (<code>y=-x+90</code>)</td>
+<td>E-D (<code>y=x-90</code>)</td>
+<td>⊥ (90°)</td>
+<td>127.28 mm</td>
+<td>Giro de 90° en el poste + recta</td>
+</tr>
+<tr>
+<td>3</td>
+<td>X-H (<code>y=90</code>)</td>
+<td>E-H (<code>y=-90</code>)</td>
+<td>∥ (paralelas)</td>
+<td>180.00 mm</td>
+<td>1 CELL recto vertical</td>
+</tr>
+<tr>
+<td>4</td>
+<td>X-H (<code>y=90</code>)</td>
+<td>E-D (<code>y=x-90</code>)</td>
+<td>⊥ (45°)</td>
+<td>180.00 mm</td>
+<td>Navegación por celda</td>
+</tr>
+<tr>
+<td>5</td>
+<td>X-D (<code>y=x-90</code>)</td>
+<td>E-H (<code>y=-90</code>)</td>
+<td>⊥ (45°)</td>
+<td>127.28 mm</td>
+<td>Recta diagonal CELL_HALF_DIAGONAL</td>
+</tr>
+<tr>
+<td>6</td>
+<td>X-V (<code>x=90</code>)</td>
+<td>E-H (<code>y=-90</code>)</td>
+<td>⊥ (90°)</td>
+<td>127.28 mm</td>
+<td>Giro de 90° en el poste</td>
+</tr>
+<tr>
+<td>7</td>
+<td>X-V (<code>x=90</code>)</td>
+<td>E-D (<code>y=x-90</code>)</td>
+<td>⊥ (45°)</td>
+<td>127.28 mm</td>
+<td>Recta diagonal CELL_HALF_DIAGONAL</td>
+</tr>
+</tbody>
+</table>
+<p>Donde:
+- <strong>⊥ (45°)</strong>: líneas a 45° (una horizontal/vertical y una diagonal) — requieren CELL_HALF_DIAGONAL
+- <strong>⊥ (90°)</strong>: líneas perpendiculares (horizontal y vertical) — el poste está en la intersección
+- <strong>∥</strong>: líneas paralelas — requieren CELL de separación</p>
+<p><strong>El caso TO_135 → FROM_45_180</strong>: la salida de TO_135 es por X-Dnw (<code>y = -x + 90mm</code>, ref en <code>(0, 90mm)</code>) y la entrada de FROM_45_180 es por E-D (<code>y = x - 90mm</code>, ref en <code>(0, -90mm)</code>). Son líneas diagonales perpendiculares que se cruzan en el poste. Con los puntos de referencia corregidos (ver <a href="#2-move_to_135--move_from_45_180-referencia-de-salida-incorrecta">Problema #2</a>), <code>.end</code> y <code>.start</code> coinciden (+47.97 mm para NORMAL), por lo que los offsets ya codifican correctamente los tramos rectos de entrada/salida sin requerir un gap intermedio adicional.</p>
+<p><strong>El caso FROM_45_180 → TO_135</strong> (inverso): la salida de FROM_45_180 es por X-H (<code>y = 90mm</code>) y la entrada de TO_135 es por E-H (<code>y = -90mm</code>). Son líneas paralelas separadas 180 mm (1 CELL). Con los valores corregidos, <code>.start = -26.59 mm</code> y <code>.end = -26.59 mm</code> también coinciden entre ambos giros, completando la simetría inversa del par.</p>
+<h3 id="tabla-resumen-de-offsets-para-el-firmware">Tabla resumen de offsets para el firmware</h3>
+<p>Valores de <code>.start</code> y <code>.end</code> para todas las velocidades (NORMAL, en mm):</p>
+<table>
+<thead>
+<tr>
+<th>Giro</th>
+<th><code>.start</code></th>
+<th><code>.end</code></th>
+<th>Notas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MOVE_90</td>
+<td>-68.83</td>
+<td>-68.83</td>
+<td>Simétrico. Ambos negativos → reducen los tramos rectos de entrada y salida</td>
+</tr>
+<tr>
+<td>MOVE_180</td>
+<td>-44.99</td>
+<td>-45.06</td>
+<td>Simétrico. Ambos negativos → reducen los tramos rectos de entrada y salida. <strong>Requiere shift manual</strong></td>
+</tr>
+<tr>
+<td>MOVE_TO_45</td>
+<td>-73.07</td>
+<td>+54.21</td>
+<td>Reduce tramo recto de entrada, alarga el de salida</td>
+</tr>
+<tr>
+<td>MOVE_TO_135</td>
+<td>-26.59</td>
+<td>+47.97</td>
+<td>Reduce tramo recto de entrada, alarga el de salida</td>
+</tr>
+<tr>
+<td>MOVE_45_TO_45</td>
+<td>+39.02</td>
+<td>+39.01</td>
+<td>Simétrico. Ambos positivos → alargan los tramos rectos de entrada y salida</td>
+</tr>
+<tr>
+<td>MOVE_FROM_45</td>
+<td>+54.21</td>
+<td>-73.07</td>
+<td>Alarga tramo recto de entrada, reduce el de salida. Inverso de TO_45</td>
+</tr>
+<tr>
+<td>MOVE_FROM_45_180</td>
+<td>+47.97</td>
+<td>-26.59</td>
+<td>Alarga tramo recto de entrada, reduce el de salida. Inverso de TO_135</td>
+</tr>
+</tbody>
+</table>
+<h2 id="parametros-de-salida">Parámetros de salida</h2>
+<p>Cada perfil genera una estructura C con estos campos:</p>
+<div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">turn_params</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">start</span><span class="p">;</span><span class="w">              </span><span class="c1">// Distancia de entrada (mm, con signo)</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">end</span><span class="p">;</span><span class="w">                </span><span class="c1">// Distancia de salida (mm, con signo)</span>
+<span class="w">    </span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">linear_speed</span><span class="p">;</span><span class="w">    </span><span class="c1">// Velocidad lineal (mm/s)</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">max_angular_speed</span><span class="p">;</span><span class="w">  </span><span class="c1">// Velocidad angular máxima (rad/s)</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">transition</span><span class="p">;</span><span class="w">         </span><span class="c1">// Duración de transición (ms)</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">arc</span><span class="p">;</span><span class="w">                </span><span class="c1">// Duración del arco (ms)</span>
+<span class="w">    </span><span class="kt">int8_t</span><span class="w"> </span><span class="n">sign</span><span class="p">;</span><span class="w">              </span><span class="c1">// +1 = giro derecha, -1 = giro izquierda</span>
+<span class="p">};</span>
+</code></pre></div>
+<p>Ejemplo de salida para NORMAL_LEFT_90:
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="n">MOVE_LEFT_90</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">.</span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">-68.8257</span><span class="p">,</span><span class="w">         </span><span class="c1">// 68.8 mm antes de la referencia de entrada</span>
+<span class="w">    </span><span class="p">.</span><span class="n">end</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">-68.8336</span><span class="p">,</span><span class="w">           </span><span class="c1">// 68.8 mm después de la referencia de salida</span>
+<span class="w">    </span><span class="p">.</span><span class="n">linear_speed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1696</span><span class="p">,</span><span class="w">      </span><span class="c1">// 1.696 m/s</span>
+<span class="w">    </span><span class="p">.</span><span class="n">max_angular_speed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">12.5630</span><span class="p">,</span>
+<span class="w">    </span><span class="p">.</span><span class="n">transition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">63.3541</span><span class="p">,</span><span class="w">     </span><span class="c1">// 63.4 ms por transición</span>
+<span class="w">    </span><span class="p">.</span><span class="n">arc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">131.4061</span><span class="p">,</span><span class="w">           </span><span class="c1">// 131.4 ms de arco constante</span>
+<span class="w">    </span><span class="p">.</span><span class="n">sign</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">                </span><span class="c1">// giro a izquierda</span>
+<span class="p">},</span>
+</code></pre></div></p>
+<h2 id="problemas-conocidos">Problemas conocidos</h2>
+<h3 id="1-move_180-asimetria-en-start-end">1. MOVE_180: Asimetría en <code>.start</code> / <code>.end</code></h3>
+<p><strong>Estado</strong>: ✅ CORREGIDO (2026-06-13)</p>
+<p><strong>Descripción</strong>: Para giros de 180°, el <code>exit</code> original era <code>(.5, 0, π)</code> (línea de salida horizontal <code>y=0</code> pasando por el centro del poste). Con radio 0.09m, el perfil tiene un desplazamiento vertical natural de ~182 mm pero la distancia entre las líneas de entrada (<code>y=-90mm</code>) y salida (<code>y=0mm</code>) era solo 90 mm — un desajuste geométrico de 2× que causaba <code>.start</code> ≠ <code>.end</code> (ratio 3.64×) y un error de 92.5 mm en la línea de salida.</p>
+<p><strong>Solución aplicada</strong>: Cambiar el <code>exit</code> de <code>(.5, 0, π)</code> → <code>(0, .5, π)</code> (salida al norte, línea <code>y=0.09</code>, heading oeste). La distancia vertical entre líneas pasa a ser 0.18 m, acercándose al desplazamiento natural del perfil (~0.1825 m).</p>
+<p><strong>Resultados tras la corrección</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Velocidad</th>
+<th>|start|</th>
+<th>|end|</th>
+<th>Ratio</th>
+<th>Error salida</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NORMAL</td>
+<td>44.99 mm</td>
+<td>45.06 mm</td>
+<td>1.002×</td>
+<td>2.55 mm</td>
+</tr>
+<tr>
+<td>MEDIUM</td>
+<td>44.98 mm</td>
+<td>45.06 mm</td>
+<td>1.002×</td>
+<td>2.55 mm</td>
+</tr>
+<tr>
+<td>FAST</td>
+<td>44.98 mm</td>
+<td>45.07 mm</td>
+<td>1.002×</td>
+<td>2.55 mm</td>
+</tr>
+<tr>
+<td>SUPER</td>
+<td>44.98 mm</td>
+<td>45.06 mm</td>
+<td>1.002×</td>
+<td>2.55 mm</td>
+</tr>
+<tr>
+<td>HAKI</td>
+<td>44.98 mm</td>
+<td>45.07 mm</td>
+<td>1.002×</td>
+<td>2.55 mm</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Nota</strong>: El error residual de ~2.55 mm en la línea de salida se debe a que el desplazamiento vertical del perfil (182.55 mm) no es exactamente 180 mm. Ajustar el componente <code>y</code> del shift manual a <code>-0.00127</code> en vez de <code>0</code> eliminaría este error repartiéndolo simétricamente (1.27 mm en cada extremo). No obstante, 2.55 mm es aceptable para la aplicación.</p>
+<h3 id="2-move_to_135-move_from_45_180-referencia-de-salida-incorrecta">2. MOVE_TO_135 / MOVE_FROM_45_180: Referencia de salida incorrecta</h3>
+<p><strong>Estado</strong>: ✅ CORREGIDO (2026-06-15)</p>
+<p><strong>Descripción</strong>: El notebook generaba <code>TO_135.end = -79.31 mm</code> porque usaba <code>exit=(.5, 0, 3π/4)</code> — referencia de salida en (90mm, 0). El valor correcto debe ser <code>+47.97 mm</code> para que coincida con <code>FROM_45_180.start</code>, como exige el firmware (comentario en <code>move.c:111</code>: <em>"El .end tiene que ser el .start y el .start tiene que ser el .end del MOVE_</em>**<em>_FROM_45_180"</em>).</p>
+<p><strong>Causa raíz</strong>: La línea de salida de TO_135 es <code>y = -x + 90mm</code>. Tanto (90, 0) como (0, 90) están sobre esta misma línea, pero el <code>.end</code> mide la distancia desde el punto de referencia, no desde la línea. Con la referencia incorrecta en (90, 0), el perfil termina en (33.92, 56.08) y la distancia es 79.31mm (signo negativo porque ya pasó la referencia). Con la referencia corregida en (0, 90), la distancia al mismo punto físico es 47.97mm (signo positivo porque aún no llega a la referencia).</p>
+<p><strong>Solución aplicada</strong>: Cambiar <code>exit=(.5, 0, 3π/4)</code> → <code>exit=(0, .5, 3π/4)</code> en las 5 velocidades del notebook. Esto NO cambia la trayectoria física (misma línea, mismo <code>turn_shift()</code>, mismas posiciones) — solo cambia desde qué punto de la línea se mide <code>.end</code>.</p>
+<p><strong>Resultados tras la corrección</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Velocidad</th>
+<th>TO_135.end</th>
+<th>FROM_45_180.start</th>
+<th>¿Coinciden?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NORMAL</td>
+<td>+47.97 mm</td>
+<td>+47.97 mm</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>MEDIUM</td>
+<td>+47.97 mm</td>
+<td>+47.97 mm</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>FAST</td>
+<td>+47.97 mm</td>
+<td>+47.97 mm</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>SUPER</td>
+<td>+47.97 mm</td>
+<td>+47.97 mm</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>HAKI</td>
+<td>+47.97 mm</td>
+<td>+47.97 mm</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Interpretación geométrica correcta</strong>:</p>
+<div class="highlight"><pre><span></span><code>        (0, 90mm) ← TO_135.exit_ref CORREGIDO
+        ×
+        |\
+        | \        TO_135: el robot recorre 47.97mm recto
+        |  \       desde el fin del arco hasta el límite de celda
+        |   \
+        |    \     FROM_45_180: el robot empieza 47.97mm después
+        ×-----×    de la referencia de entrada, ya dentro de la celda
+  (0,0)       (0, -90mm)
+  poste       FROM_45_180.entry_ref
+</code></pre></div>
+<ul>
+<li><strong>TO_135</strong>: entra por el sur (heading E), gira 135° alrededor del poste, y el arco termina en (33.92, 56.08) mm. Desde ahí, el robot recorre <strong>47.97 mm recto en dirección NW</strong> hasta alcanzar el límite de la celda en (0, 90) mm.</li>
+<li><strong>FROM_45_180</strong>: el robot entra en la celda por (0, -90) mm heading NE, y ya ha avanzado <strong>47.97 mm</strong> dentro de la celda cuando empieza el arco del giro (en (33.92, -56.08) mm).</li>
+<li><code>.start = -26.59 mm</code> y <code>.end = -26.59 mm</code> también coinciden entre TO_135 y FROM_45_180 respectivamente, completando la simetría inversa del par.</li>
+</ul>
+<p><strong>Por qué el análisis anterior era incorrecto</strong>: La diferencia de 127.28 mm (CELL_HALF_DIAGONAL) entre <code>|-79.31|</code> y <code>|+47.97|</code> era un artefacto de usar el punto de referencia equivocado. No existe ningún "gap" que requiera un movimiento recto diagonal intermedio — los valores <code>.start</code>/<code>.end</code> ya codifican correctamente los tramos rectos de aproximación y salida cuando se usa la referencia adecuada.</p>
+<h3 id="3-dependencia-de-shift-manual-para-180">3. Dependencia de shift manual para 180°</h3>
+<p><strong>Estado</strong>: ⚠️ Limitación de diseño (funcional con la geometría corregida)</p>
+<p>El <code>shift</code> manual <code>(-0.045, 0)</code> para giros de 180° sigue siendo necesario porque <code>turn_shift()</code> no funciona con líneas paralelas (entry angle=0, exit angle=π → slope=0 ambas). Con la geometría corregida (<code>exit=(0, .5, π)</code>), el shift actual produce resultados casi simétricos (ratio ~1.002, error &lt;3mm). Un ajuste fino del componente <code>y</code> del shift a <code>-0.00127</code> daría simetría perfecta, pero no es necesario para la aplicación práctica.</p>
+<h3 id="4-limitacion-de-turn_shift-con-lineas-paralelas">4. Limitación de <code>turn_shift()</code> con líneas paralelas</h3>
+<p><code>lines_intersection()</code> lanza <code>ValueError</code> cuando las pendientes son iguales. Esto afecta a cualquier configuración donde las líneas de entrada y salida sean paralelas (ángulos que difieren en múltiplos de π).</p>
+<h2 id="archivos">Archivos</h2>
+<h3 id="micromouse_sinusoidal_turn_profiles_auxpy-biblioteca-principal"><code>micromouse_sinusoidal_turn_profiles_aux.py</code> — Biblioteca principal</h3>
+<p>Motor de cálculo de perfiles de giro sinusoidal para micromouse. Contiene todas las clases y funciones necesarias para generar, alinear, analizar y visualizar trayectorias de giro.</p>
+<p><strong>Clases:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Clase</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Maze</code></td>
+<td>Parámetros del laberinto: <code>cell</code> (0.18m), <code>post</code> (0.012m)</td>
+</tr>
+<tr>
+<td><code>RobotPhysics</code></td>
+<td>Parámetros físicos: masa, momento de inercia, ancho, separación de ruedas, velocidad angular máxima</td>
+</tr>
+<tr>
+<td><code>Line</code></td>
+<td>Línea recta infinita definida por punto de referencia <code>(x, y)</code> y <code>angle</code>. Calcula <code>slope</code> e <code>intercept</code></td>
+</tr>
+<tr>
+<td><code>TurnProfile</code></td>
+<td>Clase base con DataFrame <code>profile</code> y método <code>plot_forces()</code></td>
+</tr>
+<tr>
+<td><code>SlalomTurnProfile(TurnProfile)</code></td>
+<td>Perfil completo con referencias <code>entry</code>/<code>exit</code>. Métodos: <code>describe()</code>, <code>describe_profile()</code>, <code>plot_trajectory()</code>, <code>plot_forces()</code></td>
+</tr>
+<tr>
+<td><code>Simulator</code></td>
+<td>Orquestador. Métodos: <code>inplace()</code> para giros en el sitio, <code>slalom()</code> para giros con desplazamiento</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Funciones principales:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Función</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>lines_intersection(l0, l1)</code></td>
+<td>Calcula el punto de intersección de dos líneas. Lanza <code>ValueError</code> si son paralelas</td>
+</tr>
+<tr>
+<td><code>turn_shift(entry, exit, profile)</code></td>
+<td>Calcula el vector de desplazamiento para alinear la trayectoria generada con las líneas de entrada/salida deseadas. Compara la intersección esperada con la real</td>
+</tr>
+<tr>
+<td><code>turn_profile(angle, max_av, max_aa, period)</code></td>
+<td>Genera perfil de velocidad angular sinusoidal: aceleración (seno 0→π/2), constante, deceleración (seno π/2→0)</td>
+</tr>
+<tr>
+<td><code>complete_profile(profile, start_angle, radius, lv, robot, period)</code></td>
+<td>Integra cinemáticamente: ángulo, posición (x,y), fuerzas (centrífuga, aceleración angular, total)</td>
+</tr>
+<tr>
+<td><code>complete_slalom_profile(profile, entry, exit, maze, robot, shift)</code></td>
+<td>Aplica <code>turn_shift()</code>, desplaza la trayectoria, calcula trayectorias de bordes del robot, margen al poste</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="turn-profilesipynb-notebook-principal"><code>turn-profiles.ipynb</code> — Notebook principal</h3>
+<p>Define, genera y visualiza los 7 perfiles de giro para cada una de las 5 estrategias de velocidad (EXPLORE, NORMAL, MEDIUM, FAST, SUPER, HAKI). Para cada velocidad imprime los structs C listos para copiar al firmware.</p>
+<p><strong>Estructura del notebook:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Celda</th>
+<th>Contenido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0-4</td>
+<td>Setup: imports, constantes del robot, simulador</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Definición de los 7 perfiles × 6 velocidades</td>
+</tr>
+<tr>
+<td>6-18</td>
+<td>Salida de structs C + gráficas de trayectoria para cada velocidad</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Perfiles definidos (todos los movimientos MOVE_LEFT_<em> y MOVE_RIGHT_</em>):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Movimiento</th>
+<th>entry</th>
+<th>exit</th>
+<th>Ángulo</th>
+<th>Radio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>*90</code></td>
+<td>90° estándar</td>
+<td><code>(0, -.5, 0)</code></td>
+<td><code>(.5, 0, π/2)</code></td>
+<td>90°</td>
+<td>0.135m</td>
+</tr>
+<tr>
+<td><code>*180</code></td>
+<td>180°</td>
+<td><code>(0, -.5, 0)</code></td>
+<td><code>(0, .5, π)</code></td>
+<td>180°</td>
+<td>0.09m</td>
+</tr>
+<tr>
+<td><code>*45</code> / <code>*To45</code></td>
+<td>TO_45</td>
+<td><code>(0, -.5, 0)</code></td>
+<td><code>(.5, 0, π/4)</code></td>
+<td>45°</td>
+<td>0.12m</td>
+</tr>
+<tr>
+<td><code>*135</code> / <code>*To135</code></td>
+<td>TO_135</td>
+<td><code>(0, -.5, 0)</code></td>
+<td><code>(0, .5, 3π/4)</code></td>
+<td>135°</td>
+<td>0.07456m</td>
+</tr>
+<tr>
+<td><code>*45to45</code></td>
+<td>45_TO_45</td>
+<td><code>(0, -.5, π/4)</code></td>
+<td><code>(0, .5, 3π/4)</code></td>
+<td>90°</td>
+<td>0.06364m</td>
+</tr>
+<tr>
+<td><code>*From45</code></td>
+<td>FROM_45</td>
+<td><code>(0, -.5, π/4)</code></td>
+<td><code>(.5, 0, π/2)</code></td>
+<td>45°</td>
+<td>0.12m</td>
+</tr>
+<tr>
+<td><code>*From45to180</code></td>
+<td>FROM_45_180</td>
+<td><code>(0, -.5, π/4)</code></td>
+<td><code>(0, .5, π)</code></td>
+<td>135°</td>
+<td>0.07456m</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Coordenadas de celda:</strong> Los valores <code>.5</code> y <code>-.5</code> se escalan por <code>maze.cell</code> (0.18m):
+- <code>(0, -.5)</code> → <code>(0, -90mm)</code> — centro del pasillo sur
+- <code>(.5, 0)</code> → <code>(90mm, 0)</code> — centro del pasillo este
+- <code>(0, .5)</code> → <code>(0, 90mm)</code> — centro del pasillo norte
+- <code>(0, .5)</code> → <code>(0, 90mm)</code> — centro del pasillo norte</p>
+<hr />
+<h3 id="verify_profilespy-verificacion-de-casos-problematicos"><code>verify_profiles.py</code> — Verificación de casos problemáticos</h3>
+<p>Script que comprueba sistemáticamente las relaciones esperadas entre pares de perfiles de giro para las 5 velocidades.</p>
+<p><strong>Casos verificados:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Caso</th>
+<th>Verificación</th>
+<th>Criterio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CASE 1</strong> — MOVE_180</td>
+<td><code>|.start| ≈ |.end|</code></td>
+<td>Simetría del giro de 180°</td>
+</tr>
+<tr>
+<td><strong>CASE 2</strong> — TO_135 ↔ FROM_45_180</td>
+<td><code>.start₁ ≈ .end₂</code> y <code>.end₁ ≈ .start₂</code></td>
+<td>Correspondencia de par inverso</td>
+</tr>
+<tr>
+<td><strong>CASE 3</strong> — TO_45 ↔ FROM_45</td>
+<td><code>.start₁ ≈ -.end₂</code> y <code>.end₁ ≈ -.start₂</code></td>
+<td>Par simétrico de referencia</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Análisis adicional:</strong>
+- Geometría de líneas de entrada/salida para cada caso
+- Verificación de que los puntos inicial/final están sobre sus respectivas líneas (error en mm)
+- Relación entre la línea de salida de TO_135 y la de entrada de FROM_45_180
+- Análisis de por qué los giros de 180° requieren <code>shift</code> manual (líneas paralelas)</p>
+<p><strong>Uso:</strong>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>verify_profiles.py
+</code></pre></div></p>
+<hr />
+<h3 id="deep_analysispy-trazado-paso-a-paso-de-la-generacion-de-perfiles"><code>deep_analysis.py</code> — Trazado paso a paso de la generación de perfiles</h3>
+<p>Script que desglosa el proceso interno de generación de perfiles para entender exactamente cómo se calculan los desplazamientos, las distancias y los signos.</p>
+<p><strong>Partes del análisis:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parte</th>
+<th>Contenido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>PART 1</strong> — 180° deep trace</td>
+<td>Por qué el perfil de 180° es asimétrico: el desplazamiento vertical natural del perfil (~0.1825m) es ~2× el requerido (0.09m con el exit antiguo)</td>
+</tr>
+<tr>
+<td><strong>PART 2</strong> — TO_135 vs FROM_45_180</td>
+<td>Comparación de ángulos de giro (ambos 135°), shifts aplicados, posiciones físicas de los endpoints, diferencia con el par TO_45/FROM_45 que sí comparte línea</td>
+</tr>
+<tr>
+<td><strong>PART 3</strong> — Sign convention</td>
+<td>Análisis detallado de cómo se determinan los signos de <code>.start</code> y <code>.end</code>: compara <code>norm(p[1]-ref)</code> con <code>norm(p[0]-ref)</code> para determinar si el robot se aproxima o se aleja</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Uso:</strong>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>deep_analysis.py
+</code></pre></div></p>
+<hr />
+<h3 id="analyze_all_pairspy-analisis-exhaustivo-de-encadenamiento-de-giros"><code>analyze_all_pairs.py</code> — Análisis exhaustivo de encadenamiento de giros</h3>
+<p>Script que analiza todas las combinaciones posibles de pares de giros (7×7 = 49 pares) para determinar cuáles pueden encadenarse directamente y qué segmento recto intermedio necesita cada par.</p>
+<p><strong>Partes del análisis:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parte</th>
+<th>Contenido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>PART 1</strong> — Entry/Exit lines</td>
+<td>Lista todas las líneas de entrada y salida de cada tipo de giro, mostrando ecuación, referencia y ángulo</td>
+</tr>
+<tr>
+<td><strong>PART 2</strong> — Direct chains</td>
+<td>Identifica pares donde la línea de salida de A coincide exactamente con la línea de entrada de B (misma pendiente e intercepto)</td>
+</tr>
+<tr>
+<td><strong>PART 3</strong> — Direct chain analysis</td>
+<td>Para cada par encadenable, calcula offsets, gaps físicos, y verifica la consistencia geométrica</td>
+</tr>
+<tr>
+<td><strong>PART 4</strong> — Non-direct pairs</td>
+<td>Para pares no encadenables, analiza el ángulo entre líneas (paralelas, perpendiculares, 90°), punto de intersección, y distancias</td>
+</tr>
+<tr>
+<td><strong>PART 5</strong> — Reference distance matrix</td>
+<td>Matriz 7×7 de distancias entre referencia de salida de A y referencia de entrada de B (mm)</td>
+</tr>
+<tr>
+<td><strong>PART 6</strong> — Straight segment analysis</td>
+<td>Para pares encadenables, calcula la distancia recta necesaria entre el fin físico de A y el inicio físico de B</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Uso:</strong>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>analyze_all_pairs.py
+</code></pre></div></p>
+<hr />
+<h3 id="test_new_exitpy-prueba-de-correccion-de-geometria-para-move_180"><code>test_new_exit.py</code> — Prueba de corrección de geometría para MOVE_180</h3>
+<p>Script que evalúa el cambio de <code>exit</code> para giros de 180°: de <code>(.5, 0, π)</code> (línea horizontal y=0 que pasa por el centro del poste) a <code>(0, .5, π)</code> (línea horizontal y=0.09 al norte del poste).</p>
+<p><strong>Partes del análisis:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parte</th>
+<th>Contenido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>PART 1</strong> — OLD vs NEW</td>
+<td>Compara <code>.start</code>/<code>.end</code> y simetría para las 5 velocidades con ambas definiciones de exit</td>
+</tr>
+<tr>
+<td><strong>PART 2</strong> — Optimal shift</td>
+<td>Calcula el shift óptimo para la nueva geometría minimizando el error en ambas líneas</td>
+</tr>
+<tr>
+<td><strong>PART 3</strong> — Shift strategies</td>
+<td>Prueba 4 estrategias: shift actual, shift óptimo, shift en Y solamente, sin shift</td>
+</tr>
+<tr>
+<td><strong>PART 4</strong> — Safety check</td>
+<td>Verifica que el margen al poste se mantiene seguro para todas las velocidades</td>
+</tr>
+<tr>
+<td><strong>PART 5</strong> — Summary</td>
+<td>Resumen de la mejora geométrica: con el nuevo exit, la distancia vertical entre líneas (0.18m) se aproxima mucho más al desplazamiento natural del perfil (~0.1825m)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Uso:</strong>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>test_new_exit.py
+</code></pre></div></p>
+<hr />
+<h3 id="flujo-de-trabajo-tipico">Flujo de trabajo típico</h3>
+<div class="highlight"><pre><span></span><code>1. Definir/ajustar perfiles en turn-profiles.ipynb
+2. Ejecutar el notebook para generar structs C y gráficas
+3. Verificar con verify_profiles.py que los pares cumplen las relaciones esperadas
+4. Si hay discrepancias, depurar con deep_analysis.py
+5. Para análisis global de encadenamiento, usar analyze_all_pairs.py
+6. Copiar los structs generados al firmware (move.c)
+</code></pre></div>
+<h3 id="dependencias">Dependencias</h3>
+<ul>
+<li>Python ≥ 3.10</li>
+<li>NumPy, Pandas, Matplotlib</li>
+<li>Jupyter (para el notebook)</li>
+</ul>
+<p>Los scripts <code>.py</code> son independientes y no requieren Jupyter — solo importan la biblioteca auxiliar.</p>
+<hr />
+<h2 id="referencias">Referencias</h2>
+<ul>
+<li><strong>Robot</strong>: ZoroBot3 — micromouse de competición</li>
+<li><strong>Laberinto</strong>: Micromouse clásico (celda 0.18m, poste 0.012m)</li>
+<li><strong>Modelo físico</strong>: Aceleración angular sinusoidal para minimizar jerk</li>
+<li><strong>Formato de salida</strong>: Estructuras C para el firmware del robot</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+<footer class="md-footer">
+  <div class="md-footer-meta">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+        Designed by <a href="https://github.com/robotaleh" target="_blank" style="color: #1b176b; font-weight: 700;">@robotaleh</a> &copy; 2024-2026 <a href="https://oprobots.org" target="_blank">OPRobots</a>.
+        Framework made by <a href="https://www.creative-tim.com/" target="_blank">Creative Tim</a>.
+        Documentation built with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank">MkDocs Material</a>.
+      </div>
+      
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.top", "toc.follow", "search.highlight", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../assets/js/mermaid-zoom.js"></script>
+      
+    
+  </body>
+</html>

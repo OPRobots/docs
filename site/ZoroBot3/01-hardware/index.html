@@ -1,0 +1,1973 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentación técnica del equipo OPROBOTS de robótica">
+      
+      
+        <meta name="author" content="robotaleh">
+      
+      
+        <link rel="canonical" href="https://docs.oprobots.org/ZoroBot3/01-hardware/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../02-software-architecture/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/imgs/favicon/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+<link rel="apple-touch-icon" sizes="180x180" href="assets/imgs/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/imgs/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/imgs/favicon/favicon-16x16.png">
+<link rel="manifest" href="assets/imgs/favicon/site.webmanifest">
+<link rel="mask-icon" href="assets/imgs/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="assets/imgs/favicon/favicon.ico">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="msapplication-config" content="assets/imgs/favicon/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+    
+      
+        <title>Hardware - OPROBOTS Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/css/custom.css">
+    
+      <link rel="stylesheet" href="../../assets/css/mermaid-zoom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="OPROBOTS Documentation">
+<meta property="og:description" content="Documentación técnica del equipo OPROBOTS de robótica">
+<meta property="og:image" content="https://docs.oprobots.org/assets/opr_logo.png">
+<meta property="og:image:width" content="2134">
+<meta property="og:image:height" content="1021">
+<meta property="og:image:alt" content="OPROBOTS — Equipo de robótica">
+<meta name="twitter:card" content="summary_large_image">
+<script>
+(function() {
+  /* Intercept Element.prototype.attachShadow to capture closed shadow roots
+     for Mermaid diagram elements. This MUST run before Material's bundle. */
+  if (window.__mermaidZoomPatched) return;
+  window.__mermaidZoomPatched = true;
+
+  var originalAttachShadow = Element.prototype.attachShadow;
+  var shadowMap = new WeakMap();
+  window.__mermaidShadowMap = shadowMap;
+
+  Element.prototype.attachShadow = function (options) {
+    var shadow = originalAttachShadow.call(this, options);
+    if (this.classList && this.classList.contains("mermaid")) {
+      shadowMap.set(this, shadow);
+    }
+    return shadow;
+  };
+})();
+</script>
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#hardware" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="OPROBOTS Documentation" class="md-header__button md-logo" aria-label="OPROBOTS Documentation" data-md-component="logo">
+      
+  <img src="../../assets/opr_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OPROBOTS Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Hardware
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="custom"  aria-label="Modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="custom"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+<!-- OPRobots subtle link -->
+<div style="text-align: center; padding: 5px 0; font-size: .75rem; background: #fafafa; border-bottom: 1px solid rgba(0,0,0,.06);">
+  <a href="https://oprobots.org" style="color: #1b176b; text-decoration: none; font-weight: 500;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+    ← Volver a OPRobots.org
+  </a>
+</div>
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="OPROBOTS Documentation" class="md-nav__button md-logo" aria-label="OPROBOTS Documentation" data-md-component="logo">
+      
+  <img src="../../assets/opr_logo.png" alt="logo">
+
+    </a>
+    OPROBOTS Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Robots
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Robots
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ZoroBot3
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ZoroBot3
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hardware
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hardware
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#microcontrolador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Microcontrolador
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sensores-infrarrojos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sensores Infrarrojos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sensores Infrarrojos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#componentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Componentes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disposicion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Disposición
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#principio-de-funcionamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principio de Funcionamiento
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encoders-magneticos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Encoders Magnéticos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#giroscopio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Giroscopio
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#motores-y-traccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Motores y Tracción
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Motores y Tracción">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pwm-y-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PWM y control
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alimentacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alimentación
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chasis-y-pcb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chasis y PCB
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#versiones-del-robot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Versiones del Robot
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pinout-y-perifericos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pinout y Periféricos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pinout y Periféricos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adc2-sensores-auxiliares" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ADC2 (Sensores + Auxiliares)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spi3-giroscopio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SPI3 (Giroscopio)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usart3-debug" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        USART3 (Debug)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpio-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GPIO Control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#receptor-ir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Receptor IR
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#esquema-de-bloques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Esquema de Bloques
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-software-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitectura Software
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-sensors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sensores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-movement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Movimiento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-floodfill/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Floodfill
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-control-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Control PID
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-menu-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Menú
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-debug-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Debug
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calibración
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-eeprom/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EEPROM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-encoders-gyro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Encoders y Giroscopio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-battery-leds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batería y LEDs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-simulator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Simulador
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-kinematics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cinemática
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-known-issues/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Problemas Conocidos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#microcontrolador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Microcontrolador
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sensores-infrarrojos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sensores Infrarrojos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sensores Infrarrojos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#componentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Componentes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disposicion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Disposición
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#principio-de-funcionamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principio de Funcionamiento
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encoders-magneticos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Encoders Magnéticos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#giroscopio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Giroscopio
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#motores-y-traccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Motores y Tracción
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Motores y Tracción">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pwm-y-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PWM y control
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alimentacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alimentación
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chasis-y-pcb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chasis y PCB
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#versiones-del-robot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Versiones del Robot
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pinout-y-perifericos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pinout y Periféricos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pinout y Periféricos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adc2-sensores-auxiliares" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ADC2 (Sensores + Auxiliares)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spi3-giroscopio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SPI3 (Giroscopio)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usart3-debug" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        USART3 (Debug)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpio-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GPIO Control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#receptor-ir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Receptor IR
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#esquema-de-bloques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Esquema de Bloques
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="hardware">Hardware</h1>
+<h2 id="microcontrolador">Microcontrolador</h2>
+<table>
+<thead>
+<tr>
+<th>Característica</th>
+<th>Detalle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Modelo</strong></td>
+<td>STM32F405RGT6</td>
+</tr>
+<tr>
+<td><strong>Arquitectura</strong></td>
+<td>ARM Cortex-M4F (FPU)</td>
+</tr>
+<tr>
+<td><strong>Frecuencia</strong></td>
+<td>168 MHz</td>
+</tr>
+<tr>
+<td><strong>Flash</strong></td>
+<td>1 MB</td>
+</tr>
+<tr>
+<td><strong>RAM</strong></td>
+<td>192 KB</td>
+</tr>
+<tr>
+<td><strong>Framework</strong></td>
+<td>LibOpenCM3</td>
+</tr>
+<tr>
+<td><strong>Entorno</strong></td>
+<td>PlatformIO + VSCode</td>
+</tr>
+</tbody>
+</table>
+<p>El STM32F405RGT6 proporciona:
+- <strong>Timers</strong>: TIM3 y TIM4 para lectura de encoders en modo contador. TIM2 y TIM5 generan PWM para motores (20 kHz).
+- <strong>ADC</strong>: ADC2 para lectura de 4 sensores IR + 4 canales auxiliares (batería, corriente motores, botón menú).
+- <strong>SPI</strong>: SPI3 para comunicación con el LSM6DSR.
+- <strong>USART</strong>: USART3 para printf por puerto serie (115200 baud).
+- <strong>DMA</strong>: Usado para lecturas ADC.
+- <strong>GPIO</strong>: Control de emisores IR, LEDs, habilitación de motores, chip select SPI.</p>
+<hr />
+<h2 id="sensores-infrarrojos">Sensores Infrarrojos</h2>
+<h3 id="componentes">Componentes</h3>
+<table>
+<thead>
+<tr>
+<th>Componente</th>
+<th>Modelo</th>
+<th>Cantidad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Emisor IR</strong></td>
+<td>SFH-4550 (GaAs, 860 nm, alta eficiencia)</td>
+<td>4</td>
+</tr>
+<tr>
+<td><strong>Receptor IR</strong></td>
+<td>ST-1KL3A (fototransistor, encapsulado negro)</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<h3 id="disposicion">Disposición</h3>
+<table>
+<thead>
+<tr>
+<th>Sensor</th>
+<th>ID</th>
+<th>Canal ADC</th>
+<th>GPIO Emitter</th>
+<th>Función</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Front Left</td>
+<td><code>SENSOR_FRONT_LEFT_WALL_ID</code> (0)</td>
+<td>ADC_CHANNEL10 (PC0)</td>
+<td>PA0</td>
+<td>Pared frontal izquierda</td>
+</tr>
+<tr>
+<td>Front Right</td>
+<td><code>SENSOR_FRONT_RIGHT_WALL_ID</code> (1)</td>
+<td>ADC_CHANNEL13 (PC3)</td>
+<td>PA3</td>
+<td>Pared frontal derecha</td>
+</tr>
+<tr>
+<td>Side Left</td>
+<td><code>SENSOR_SIDE_LEFT_WALL_ID</code> (2)</td>
+<td>ADC_CHANNEL12 (PC2)</td>
+<td>PA2</td>
+<td>Pared lateral izquierda</td>
+</tr>
+<tr>
+<td>Side Right</td>
+<td><code>SENSOR_SIDE_RIGHT_WALL_ID</code> (3)</td>
+<td>ADC_CHANNEL11 (PC1)</td>
+<td>PA1</td>
+<td>Pared lateral derecha</td>
+</tr>
+</tbody>
+</table>
+<h3 id="principio-de-funcionamiento">Principio de Funcionamiento</h3>
+<ol>
+<li><strong>Medición diferencial</strong>: Se mide <code>sensors_off</code> (LED apagado, luz ambiental) y <code>sensors_on</code> (LED encendido). La señal útil = <code>on - off</code>.</li>
+<li><strong>Ley física</strong>: La relación entre distancia y lectura sigue aproximadamente <code>reading ≈ k / distance²</code>.</li>
+<li><strong>Secuencia</strong>: Solo se enciende un LED a la vez para evitar crosstalk óptico.</li>
+</ol>
+<hr />
+<h2 id="encoders-magneticos">Encoders Magnéticos</h2>
+<table>
+<thead>
+<tr>
+<th>Característica</th>
+<th>Detalle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Modelo</strong></td>
+<td>AS5145B-HSST</td>
+</tr>
+<tr>
+<td><strong>Resolución</strong></td>
+<td>12 bits (4096 posiciones/revolución)</td>
+</tr>
+<tr>
+<td><strong>Interfaz</strong></td>
+<td>Timer en modo contador (cuadratura por hardware)</td>
+</tr>
+<tr>
+<td><strong>Timer izquierda</strong></td>
+<td>TIM4</td>
+</tr>
+<tr>
+<td><strong>Timer derecha</strong></td>
+<td>TIM3</td>
+</tr>
+<tr>
+<td><strong>Micrómetros por tick</strong></td>
+<td>10.494055 μm</td>
+</tr>
+</tbody>
+</table>
+<p>Conversión: <code>μm = ticks × 10.494055</code>. Derivado de <code>(π × diámetro_rueda) / 4096</code>.</p>
+<p><strong>Relación de engranajes</strong>:
+- Piñón motor: 8T 0.5M
+- Engranaje rueda: 40T 0.5M
+- Engranaje encoder: 22T 0.5M (resina)</p>
+<hr />
+<h2 id="giroscopio">Giroscopio</h2>
+<table>
+<thead>
+<tr>
+<th>Característica</th>
+<th>Detalle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Modelo</strong></td>
+<td>LSM6DSRTR</td>
+</tr>
+<tr>
+<td><strong>Interfaz</strong></td>
+<td>SPI3 (PA15 = CS)</td>
+</tr>
+<tr>
+<td><strong>Rangos</strong></td>
+<td>1000 / 2000 / 4000 dps</td>
+</tr>
+<tr>
+<td><strong>ODR</strong></td>
+<td>1666 Hz</td>
+</tr>
+<tr>
+<td><strong>Filtro</strong></td>
+<td>Paso-bajo LIGHT (~100 Hz en 1000 dps)</td>
+</tr>
+<tr>
+<td><strong>Block Data Update</strong></td>
+<td>Habilitado</td>
+</tr>
+</tbody>
+</table>
+<p>El full-scale se cambia dinámicamente según la estrategia de velocidad (1000 dps en exploración, 2000 dps en carrera).</p>
+<hr />
+<h2 id="motores-y-traccion">Motores y Tracción</h2>
+<table>
+<thead>
+<tr>
+<th>Componente</th>
+<th>Detalle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Motores</strong></td>
+<td>2× Coreless 8520 7.4V (genéricos)</td>
+</tr>
+<tr>
+<td><strong>Driver</strong></td>
+<td>MP6551 @ 20 kHz PWM</td>
+</tr>
+<tr>
+<td><strong>Ruedas</strong></td>
+<td>Goma Kyosho K.MZW39-30</td>
+</tr>
+<tr>
+<td><strong>Rodamientos ruedas</strong></td>
+<td>4× MR63ZZ</td>
+</tr>
+<tr>
+<td><strong>Rodamientos encoders</strong></td>
+<td>2× MR52ZZ</td>
+</tr>
+<tr>
+<td><strong>Imán encoders</strong></td>
+<td>2× Radial 6×2.5mm</td>
+</tr>
+<tr>
+<td><strong>Ventilador</strong></td>
+<td>Succión controlada por MOSFET AO3400</td>
+</tr>
+</tbody>
+</table>
+<h3 id="pwm-y-control">PWM y control</h3>
+<ul>
+<li>Resolución PWM: 1024 niveles (10 bits)</li>
+<li>Frecuencia PWM motores: 20 kHz</li>
+<li>MOSFETs AO3400 (A09T) para conmutar emisores IR y ventilador</li>
+</ul>
+<hr />
+<h2 id="alimentacion">Alimentación</h2>
+<table>
+<thead>
+<tr>
+<th>Componente</th>
+<th>Detalle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Batería</strong></td>
+<td>LiPo 2S 260mAh 35-70C Turnigy nano-tech</td>
+</tr>
+<tr>
+<td><strong>Regulador principal</strong></td>
+<td>CN3903 (buck DC-DC)</td>
+</tr>
+<tr>
+<td><strong>LDO</strong></td>
+<td>ME611C33M5G (3.3V para MCU y sensores)</td>
+</tr>
+<tr>
+<td><strong>Rango 2S</strong></td>
+<td>7.4V (bajo) - 8.4V (alto)</td>
+</tr>
+<tr>
+<td><strong>Soporte 3S</strong></td>
+<td>11.0V - 12.6V (requiere cambiar <code>VOLT_DIV_FACTOR</code>)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="chasis-y-pcb">Chasis y PCB</h2>
+<ul>
+<li><strong>Chasis</strong>: PCB principal con soportes de motores y ventilador en PLA</li>
+<li><strong>Diseño PCB</strong>: KiCad (archivos en <code>pcb_files/</code>)</li>
+<li><strong>Piezas impresas</strong>: 11 archivos STL (soportes, engranajes, ruedas, ventilador)</li>
+</ul>
+<hr />
+<h2 id="versiones-del-robot">Versiones del Robot</h2>
+<p>Existen 3 versiones del robot identificadas por el STM32 UID (Unique ID):</p>
+<table>
+<thead>
+<tr>
+<th>Versión</th>
+<th>Enum</th>
+<th>Identificación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ZOROBOT3_A</td>
+<td>1</td>
+<td>Primera revisión</td>
+</tr>
+<tr>
+<td>ZOROBOT3_B</td>
+<td>2</td>
+<td>Segunda revisión</td>
+</tr>
+<tr>
+<td>ZOROBOT3_C</td>
+<td>3</td>
+<td>Tercera revisión</td>
+</tr>
+</tbody>
+</table>
+<p>Cada versión tiene diferentes parámetros de calibración ABC para los sensores (ver <a href="../03-sensors/#parámetros-abc-por-versión-del-robot">Sensores</a>).</p>
+<p>La detección se realiza en <code>handle_robot_version()</code> leyendo <code>UID_WORD0</code> del registro <code>0x1FFF7A10</code>.</p>
+<hr />
+<h2 id="pinout-y-perifericos">Pinout y Periféricos</h2>
+<h3 id="adc2-sensores-auxiliares">ADC2 (Sensores + Auxiliares)</h3>
+<table>
+<thead>
+<tr>
+<th>Canal</th>
+<th>GPIO</th>
+<th>Función</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CH10</td>
+<td>PC0</td>
+<td>Sensor Front Left</td>
+</tr>
+<tr>
+<td>CH13</td>
+<td>PC3</td>
+<td>Sensor Front Right</td>
+</tr>
+<tr>
+<td>CH12</td>
+<td>PC2</td>
+<td>Sensor Side Left</td>
+</tr>
+<tr>
+<td>CH11</td>
+<td>PC1</td>
+<td>Sensor Side Right</td>
+</tr>
+<tr>
+<td>CH4</td>
+<td>PA4</td>
+<td>Batería (AUX_BATTERY_ID)</td>
+</tr>
+<tr>
+<td>CH14</td>
+<td>PC4</td>
+<td>Corriente motor izquierdo</td>
+</tr>
+<tr>
+<td>CH15</td>
+<td>PC5</td>
+<td>Corriente motor derecho</td>
+</tr>
+<tr>
+<td>CH8</td>
+<td>PB0</td>
+<td>Botón de menú (AUX_MENU_BTN_ID)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="spi3-giroscopio">SPI3 (Giroscopio)</h3>
+<table>
+<thead>
+<tr>
+<th>GPIO</th>
+<th>Función</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PA15</td>
+<td>CS (Chip Select)</td>
+</tr>
+<tr>
+<td>PC10</td>
+<td>SCK</td>
+</tr>
+<tr>
+<td>PC11</td>
+<td>MISO</td>
+</tr>
+<tr>
+<td>PC12</td>
+<td>MOSI</td>
+</tr>
+</tbody>
+</table>
+<h3 id="usart3-debug">USART3 (Debug)</h3>
+<table>
+<thead>
+<tr>
+<th>GPIO</th>
+<th>Función</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PC6</td>
+<td>TX</td>
+</tr>
+<tr>
+<td>PC7</td>
+<td>RX</td>
+</tr>
+</tbody>
+</table>
+<h3 id="gpio-control">GPIO Control</h3>
+<table>
+<thead>
+<tr>
+<th>GPIO</th>
+<th>Función</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PA0-PA3</td>
+<td>Emisores IR (LED ON/OFF)</td>
+</tr>
+<tr>
+<td>PB13</td>
+<td>LED de estado</td>
+</tr>
+<tr>
+<td>PB14</td>
+<td>LED RGB (TIM12, CH1-3)</td>
+</tr>
+<tr>
+<td>PA6-PA7, PC8-PC9, PB1-PB2, PA11-PA12, PB8-PB9</td>
+<td>LEDs de información (10)</td>
+</tr>
+<tr>
+<td>PB6-PB7</td>
+<td>Botones de menú</td>
+</tr>
+<tr>
+<td>PB15</td>
+<td>Driver motores enable</td>
+</tr>
+<tr>
+<td>PB10</td>
+<td>Ventilador (PWM)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="receptor-ir">Receptor IR</h3>
+<table>
+<thead>
+<tr>
+<th>Componente</th>
+<th>Detalle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Modelo</strong></td>
+<td>TSSP77038TR</td>
+</tr>
+<tr>
+<td><strong>Frecuencia</strong></td>
+<td>38 kHz</td>
+</tr>
+<tr>
+<td><strong>Protocolo</strong></td>
+<td>RC5</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="esquema-de-bloques">Esquema de Bloques</h2>
+<pre class="mermaid"><code>flowchart TB
+    subgraph MCU["STM32F405RGT6 @ 168 MHz"]
+        direction TB
+        subgraph row1[" "]
+            direction LR
+            P1["TIM3/4&lt;br&gt;Encoders (L,R)"]
+            P2["SPI3&lt;br&gt;LSM6DSR (Gyro)"]
+            P3["ADC2&lt;br&gt;4×IR + 4×Aux"]
+        end
+        subgraph row2[" "]
+            direction LR
+            P4["TIM2/5&lt;br&gt;PWM 20 kHz&lt;br&gt;(Motores)"]
+            P5["USART3&lt;br&gt;Debug&lt;br&gt;115200"]
+            P6["GPIO&lt;br&gt;IR LEDs&lt;br&gt;Info LEDs"]
+        end
+        DMA["DMA&lt;br&gt;Transferencias ADC automáticas"]
+        P3 --&gt; DMA
+    end</code></pre>
+<hr />
+<p><em>Documento generado el 2026-06-12. Referencia cruzada con <a href="../03-sensors/">Sensores</a>, <a href="../11-encoders-gyro/">Encoders y Giroscopio</a>.</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+<footer class="md-footer">
+  <div class="md-footer-meta">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+        Designed by <a href="https://github.com/robotaleh" target="_blank" style="color: #1b176b; font-weight: 700;">@robotaleh</a> &copy; 2024-2026 <a href="https://oprobots.org" target="_blank">OPRobots</a>.
+        Framework made by <a href="https://www.creative-tim.com/" target="_blank">Creative Tim</a>.
+        Documentation built with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank">MkDocs Material</a>.
+      </div>
+      
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.top", "toc.follow", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/js/mermaid-zoom.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1411 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentación técnica del equipo OPROBOTS de robótica">
+      
+      
+        <meta name="author" content="robotaleh">
+      
+      
+        <link rel="canonical" href="https://docs.oprobots.org/robots/ZoroBot3/source_code/utils/simulator/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/imgs/favicon/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+<link rel="apple-touch-icon" sizes="180x180" href="assets/imgs/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/imgs/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/imgs/favicon/favicon-16x16.png">
+<link rel="manifest" href="assets/imgs/favicon/site.webmanifest">
+<link rel="mask-icon" href="assets/imgs/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="assets/imgs/favicon/favicon.ico">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="msapplication-config" content="assets/imgs/favicon/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+    
+      
+        <title>ZoroBot3: Maze Simulator (Standalone) - OPROBOTS Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/css/custom.css">
+    
+      <link rel="stylesheet" href="../../../../../assets/css/mermaid-zoom.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="OPROBOTS Documentation">
+<meta property="og:description" content="Documentación técnica del equipo OPROBOTS de robótica">
+<meta property="og:image" content="https://docs.oprobots.org/assets/opr_logo.png">
+<meta property="og:image:width" content="2134">
+<meta property="og:image:height" content="1021">
+<meta property="og:image:alt" content="OPROBOTS — Equipo de robótica">
+<meta name="twitter:card" content="summary_large_image">
+<script>
+(function() {
+  /* Intercept Element.prototype.attachShadow to capture closed shadow roots
+     for Mermaid diagram elements. This MUST run before Material's bundle. */
+  if (window.__mermaidZoomPatched) return;
+  window.__mermaidZoomPatched = true;
+
+  var originalAttachShadow = Element.prototype.attachShadow;
+  var shadowMap = new WeakMap();
+  window.__mermaidShadowMap = shadowMap;
+
+  Element.prototype.attachShadow = function (options) {
+    var shadow = originalAttachShadow.call(this, options);
+    if (this.classList && this.classList.contains("mermaid")) {
+      shadowMap.set(this, shadow);
+    }
+    return shadow;
+  };
+})();
+</script>
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#zorobot3-maze-simulator-standalone" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../../../../.." title="OPROBOTS Documentation" class="md-header__button md-logo" aria-label="OPROBOTS Documentation" data-md-component="logo">
+      
+  <img src="../../../../../assets/opr_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OPROBOTS Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ZoroBot3: Maze Simulator (Standalone)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="custom"  aria-label="Modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="custom"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+<!-- OPRobots subtle link -->
+<div style="text-align: center; padding: 5px 0; font-size: .75rem; background: #fafafa; border-bottom: 1px solid rgba(0,0,0,.06);">
+  <a href="https://oprobots.org" style="color: #1b176b; text-decoration: none; font-weight: 500;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+    ← Volver a OPRobots.org
+  </a>
+</div>
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="OPROBOTS Documentation" class="md-nav__button md-logo" aria-label="OPROBOTS Documentation" data-md-component="logo">
+      
+  <img src="../../../../../assets/opr_logo.png" alt="logo">
+
+    </a>
+    OPROBOTS Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Robots
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Robots
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ZoroBot3
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ZoroBot3
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../ZoroBot3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../ZoroBot3/01-hardware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hardware
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../ZoroBot3/02-software-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitectura Software
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../ZoroBot3/03-sensors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sensores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../ZoroBot3/04-movement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Movimiento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../ZoroBot3/05-floodfill/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Floodfill
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../ZoroBot3/06-control-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Control PID
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../ZoroBot3/07-menu-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Menú
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../ZoroBot3/08-debug-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Debug
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../ZoroBot3/09-calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calibración
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../ZoroBot3/10-eeprom/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EEPROM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../ZoroBot3/11-encoders-gyro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Encoders y Giroscopio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../ZoroBot3/12-battery-leds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batería y LEDs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../ZoroBot3/13-simulator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Simulador
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../ZoroBot3/14-kinematics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cinemática
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../ZoroBot3/15-known-issues/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Problemas Conocidos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#que-hace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Qué hace?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquitectura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arquitectura
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compilacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compilación
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Compilación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Windows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linux
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Uso
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Uso">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Windows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linux
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#argumentos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Argumentos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stats-de-exploracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stats de Exploración
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#camino-optimo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Camino Óptimo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#formato-del-laberinto-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Formato del Laberinto (.map)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-de-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejemplo de Output
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diferencia-con-mms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diferencia con MMS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uso-del-script-de-python-para-pruebas-automaticas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Uso del script de Python para pruebas automáticas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Uso del script de Python para pruebas automáticas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-de-uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejemplo de uso:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requisitos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requisitos:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="zorobot3-maze-simulator-standalone">ZoroBot3: Maze Simulator (Standalone)</h1>
+<p>Este simulador permite ejecutar el algoritmo de mapeo y resolución de ZoroBot3 en PC, usando la lógica del robot real.</p>
+<h2 id="que-hace">¿Qué hace?</h2>
+<ul>
+<li>Recibe como input un fichero de laberinto en formato .map.</li>
+<li>Simula la exploración y resolución del laberinto, igual que el robot.</li>
+<li>Muestra <strong>stats de exploración</strong> (igual que MMS).</li>
+<li>Imprime el laberinto con los <strong>tiempos</strong>.</li>
+<li>Imprime el laberinto mapeado con las celdas visitadas y el <strong>camino óptimo</strong>.</li>
+</ul>
+<h2 id="arquitectura">Arquitectura</h2>
+<p>El simulador usa los <strong>ficheros originales de ZoroBot3</strong> sin modificarlos:</p>
+<div class="highlight"><pre><span></span><code>simulator/
+├── mazes/              # Ficheros de laberintos (.map o .txt)
+|    ├── Portuguese Micromouse Contest 2025.map
+|    └── ...
+├── sim_api.c           # Implementa API_* (lee paredes de array interno)
+├── sim_main.c          # main() - lee laberinto y ejecuta exploración
+├── Makefile.linux      # Makefile para compilar en Linux
+├── Makefile.simulator  # Makefile para compilar en Windows
+└── README.md
+
+src/               # Ficheros originales (no modificados)
+├── floodfill.c    # Algoritmo de exploración
+├── maze.c         # Gestión del laberinto
+├── move.c         # Movimientos (usa API_* cuando MMSIM_ENABLED)
+├── sensors.c      # Sensores (usa API_wall* cuando MMSIM_ENABLED)
+└── ...
+</code></pre></div>
+<p>El flag <code>-DMMSIM_ENABLED</code> activa los bloques condicionales en el código original.</p>
+<h2 id="compilacion">Compilación</h2>
+<h3 id="windows">Windows</h3>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>utils<span class="se">\s</span>imulator
+make<span class="w"> </span>-f<span class="w"> </span>Makefile.windows
+</code></pre></div>
+<h3 id="linux">Linux</h3>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>utils/simulator
+make<span class="w"> </span>-f<span class="w"> </span>Makefile.linux
+</code></pre></div>
+<h2 id="uso">Uso</h2>
+<h3 id="windows_1">Windows</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Ejecutar con fichero .map</span>
+maze_sim.exe<span class="w"> </span>-floodfill-type<span class="o">=</span><span class="m">0</span><span class="w"> </span>-explore-type<span class="o">=</span><span class="m">0</span><span class="w"> </span>mazes<span class="se">\m</span>aze.map
+</code></pre></div>
+<h3 id="linux_1">Linux</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Ejecutar con fichero .map</span>
+maze_sim<span class="w"> </span>-floodfill-type<span class="o">=</span><span class="m">0</span><span class="w"> </span>-explore-type<span class="o">=</span><span class="m">0</span><span class="w"> </span>mazes/maze.map
+</code></pre></div>
+<h2 id="argumentos">Argumentos</h2>
+<ul>
+<li><code>-floodfill-type=0</code> : FLOODFILL_BASIC</li>
+<li><code>-floodfill-type=1</code> : FLOODFILL_DIAGONAL</li>
+<li><code>-floodfill-type=2</code> : FLOODFILL_TIME</li>
+<li>
+<p><code>-floodfill-type=3</code> : FLOODFILL_TIMEv2 (default)</p>
+</li>
+<li>
+<p><code>-explore-type=0</code> : EXPLORE_SIMPLE</p>
+</li>
+<li><code>-explore-type=1</code> : EXPLORE_HOME</li>
+<li><code>-explore-type=2</code> : EXPLORE_COMPLETE (default)</li>
+</ul>
+<h2 id="stats-de-exploracion">Stats de Exploración</h2>
+<p>El simulador muestra las mismas estadísticas que el MMS:</p>
+<div class="highlight"><pre><span></span><code>=== Exploration Stats ===
+Total Distance: 836
+Current Run Distance: 268
+Total Effective Distance: 836.0
+Current Run Effective Distance: 268.0
+Total Turns: 356
+Current Run Turns: 114
+Best Run Distance: 268
+Best Run Effective Distance: 268.0
+Best Run Turns: 114
+Score: 501.2
+</code></pre></div>
+<h2 id="camino-optimo">Camino Óptimo</h2>
+<p>El camino óptimo desde el inicio hasta la meta se marca con ███</p>
+<div class="highlight"><pre><span></span><code>=== CAMINO ÓPTIMO ===
+·═══════·═══════·═══════·
+║  ███  │       │  ███  ║
+·       ·═══════·       ·
+║  ███     ███     ███  ║
+·═══════·═══════·═══════·
+</code></pre></div>
+<h2 id="formato-del-laberinto-map">Formato del Laberinto (.map)</h2>
+<p>El fichero .map tiene el mismo formato que usa MMS:</p>
+<div class="highlight"><pre><span></span><code>+---+---+---+---+
+|               |
++   +---+   +   +
+|   |       |   |
++   +   +---+   +
+|       |       |
++---+---+---+---+
+
+[14,12,6,12,8,18,8,18,10,10,24,6,10,24,20,18]
+</code></pre></div>
+<ul>
+<li><strong>Primera parte</strong>: Representación ASCII del laberinto (se ignora)</li>
+<li><strong>Entre []</strong>: Valores de celdas separados por coma (256 valores para 16x16)</li>
+</ul>
+<p>Cada valor codifica las paredes (bits): N=16, E=2, S=4, W=8, Visited=1</p>
+<p>Los ficheros .map se guardan automáticamente desde MMS.</p>
+<h2 id="ejemplo-de-output">Ejemplo de Output</h2>
+<div class="highlight"><pre><span></span><code>=== ZoroBot3 Maze Simulator (Standalone) ===
+Laberinto: ./mazes/Portuguese Micromouse Contest 2025.map (16x16)
+FloodFill type: 0
+
+Interesting cell: 1 - 2
+Interesting cell: 2 - 3
+Interesting cell: 1 - 11
+Interesting cell: 1 - 11
+Interesting cell: 6 - 4
+Interesting cell: 6 - 3
+Interesting cell: 7 - 3
+Interesting cell: 8 - 3
+Interesting cell: 9 - 3
+Interesting cell: 1 - 1
+Interesting cell: 1 - 1
+
+
+Current position: 0
+Current direction: 16
+Run sequence: BRRLLRRLLRRLLRRLLFFRRFFLFFFFLRLFFFFFFFLLRLRLRFRRLLRLLRFS
+Final position: 136
+Final direction: 1
+Solve strategy: 1
+MOVE_START &gt; MOVE_RIGHT_TO_135 &gt; MOVE_LEFT_45_TO_45 &gt; MOVE_RIGHT_45_TO_45 &gt; ...
+&gt; MOVE_HOME
+
+=== Exploración completada ===
+Loops ejecutados: 1
+=== Exploration Stats ===
+Total Distance: 600
+Current Run Distance: 360
+Total Effective Distance: 600.0
+Current Run Effective Distance: 360.0
+Total Turns: 152
+Current Run Turns: 82
+Best Run Distance: 360
+Best Run Effective Distance: 360.0
+Best Run Turns: 82
+Score: 517.2
+
+=== TIEMPOS (FLOODFILL) ===
+·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·
+║ 59.00 ║ 54.00   55.00   54.00   53.00   52.00   53.00 ║ 36.00   35.00   34.00   33.00   32.00   31.00   30.00   31.00   32.00 ║
+·       ·       ·═══════·       ·═══════·       ·═══════·       ·═══════·═══════·═══════·═══════·═══════·       ·       ·       ·
+║ 58.00 ║ 53.00   52.00 ║ 53.00   52.00   51.00   52.00 ║ 37.00   38.00   39.00   40.00   41.00   42.00 ║ 29.00 ║ 30.00 ║ 33.00 ║
+·       ·       ·       ·       ·═══════·       ·═══════·═══════·═══════·═══════·═══════·═══════·       ·       ·       ·       ·
+║ 57.00 ║ 54.00 ║ 51.00 ║ 52.00   51.00   50.00   49.00   48.00   47.00   46.00   45.00   44.00   43.00 ║ 28.00   29.00 ║ 34.00 ║
+·       ·       ·       ·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·       ·═══════·       ·
+║ 56.00   55.00 ║ 50.00 ║ 11.00   10.00   9.000   10.00   11.00   12.00   13.00   14.00   15.00   16.00 ║ 27.00 ║ 36.00   35.00 ║
+·       ·       ·       ·       ·═══════·       ·═══════·       ·═══════·═══════·═══════·═══════·       ·       ·       ·═══════·
+║ 57.00 ║ 56.00 ║ 49.00 ║ 10.00   9.000   8.000   9.000   10.00   11.00 ║ 20.00   19.00   18.00   17.00 ║ 26.00 ║ 37.00 ║ 40.00 ║
+·       ·       ·       ·       ·═══════·       ·═══════·       ·═══════·       ·       ·       ·═══════·       ·       ·       ·
+║ 58.00 ║ 57.00 ║ 48.00 ║ 9.000   8.000   7.000   8.000   9.000   10.00 ║ 21.00 ║ 20.00 ║ 19.00 ║ 24.00 ║ 25.00 ║ 38.00   39.00 ║
+·       ·       ·       ·       ·═══════·       ·═══════·═══════·═══════·       ·       ·       ·       ·       ·═══════·       ·
+║ 59.00   58.00 ║ 47.00 ║ 8.000   7.000   6.000 ║ 3.000   2.000   1.000 ║ 22.00 ║ 21.00 ║ 20.00 ║ 23.00 ║ 24.00 ║ 43.00 ║ 40.00 ║
+·       ·       ·       ·═══════·═══════·       ·       ·═══════·       ·       ·       ·       ·       ·       ·       ·       ·
+║ 60.00 ║ 59.00 ║ 46.00   47.00 ║ 6.000   5.000   4.000 ║ 0.000   0.000 ║ 23.00   22.00   21.00   22.00 ║ 25.00 ║ 42.00   41.00 ║
+·       ·       ·       ·═══════·═══════·       ·       ·       ·       ·       ·       ·       ·       ·       ·       ·       ·
+║ 61.00 ║ 60.00 ║ 45.00   44.00   45.00 ║ 6.000 ║ 5.000 ║ 0.000   0.000 ║ 24.00 ║ 23.00 ║ 22.00 ║ 23.00 ║ 26.00 ║ 43.00 ║ 42.00 ║
+·       ·       ·═══════·       ·═══════·═══════·       ·═══════·═══════·       ·       ·       ·       ·       ·       ·       ·
+║ 62.00   61.00 ║ 44.00   43.00   42.00   43.00 ║ 6.000 ║ 27.00   26.00   25.00 ║ 24.00 ║ 23.00 ║ 24.00 ║ 27.00 ║ 44.00 ║ 43.00 ║
+·       ·       ·       ·═══════·       ·═══════·═══════·       ·═══════·       ·       ·       ·       ·       ·       ·       ·
+║ 63.00 ║ 62.00 ║ 43.00   42.00   41.00   40.00 ║ 39.00 ║ 28.00   27.00   26.00   25.00   24.00   25.00 ║ 28.00 ║ 45.00   44.00 ║
+·       ·       ·       ·       ·═══════·       ·       ·═══════·═══════·═══════·═══════·═══════·       ·       ·       ·       ·
+║ 64.00 ║ 63.00 ║ 44.00 ║ 43.00   42.00 ║ 39.00   38.00 ║ 35.00   34.00 ║ 31.00   30.00 ║ 29.00 ║ 26.00 ║ 29.00 ║ 46.00 ║ 45.00 ║
+·       ·       ·═══════·═══════·       ·       ·       ·       ·       ·       ·       ·       ·       ·       ·       ·       ·
+║ 65.00 ║ 64.00   63.00   62.00 ║ 41.00   40.00 ║ 37.00   36.00 ║ 33.00   32.00 ║ 29.00   28.00   27.00 ║ 30.00 ║ 47.00 ║ 46.00 ║
+·       ·═══════·═══════·       ·═══════·       ·       ·       ·       ·       ·       ·       ·═══════·       ·       ·       ·
+║ 66.00   65.00   64.00 ║ 61.00 ║ 40.00   39.00   38.00 ║ 35.00   34.00 ║ 31.00   30.00 ║ 29.00   30.00   31.00 ║ 48.00   47.00 ║
+·       ·═══════·       ·       ·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·       ·
+║ 67.00 ║ 64.00 ║ 63.00 ║ 60.00   59.00   58.00   57.00   56.00   55.00   54.00   53.00   52.00   51.00   50.00   49.00   48.00 ║
+·       ·       ·       ·═══════·═══════·═══════·       ·═══════·═══════·       ·═══════·═══════·═══════·═══════·       ·       ·
+║ 68.00 ║ 63.00   62.00   61.00   60.00   59.00   58.00   57.00   56.00   55.00   54.00   53.00   52.00   51.00   50.00 ║ 49.00 ║
+·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·
+
+=== CELDAS VISITADAS Y CAMINO ÓPTIMO ===
+·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·
+║       ║   V       V       V                           ║   V       V       V       V       V       V       V       V       V   ║
+·       ·       ·═══════·       ·═══════·       ·═══════·       ·═══════·═══════·═══════·═══════·═══════·       ·       ·       ·
+║       ║  ███     ███  ║   V                           ║   V       V       V       V       V       V   ║       ║       ║   V   ║
+·       ·       ·       ·       ·═══════·       ·═══════·═══════·═══════·═══════·═══════·═══════·       ·       ·       ·       ·
+║       ║  ███  ║  ███  ║   V       V       V       V       V       V       V       V       V       V   ║               ║   V   ║
+·       ·       ·       ·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·       ·═══════·       ·
+║  ███     ███  ║  ███  ║                  ███     ███     ███     ███     ███     ███     ███     ███  ║       ║   V       V   ║
+·       ·       ·       ·       ·═══════·       ·═══════·       ·═══════·═══════·═══════·═══════·       ·       ·       ·═══════·
+║  ███  ║   V   ║  ███  ║                  ███              V           ║   V       V      ███     ███  ║       ║   V   ║       ║
+·       ·       ·       ·       ·═══════·       ·═══════·       ·═══════·       ·       ·       ·═══════·       ·       ·       ·
+║  ███  ║   V   ║  ███  ║                  ███      V       V       V   ║   V   ║       ║  ███  ║       ║       ║   V       V   ║
+·       ·       ·       ·       ·═══════·       ·═══════·═══════·═══════·       ·       ·       ·       ·       ·═══════·       ·
+║  ███      V   ║  ███  ║                  ███  ║  ███     ███     ███  ║   V   ║       ║  ███  ║       ║       ║   V   ║   V   ║
+·       ·       ·       ·═══════·═══════·       ·       ·═══════·       ·       ·       ·       ·       ·       ·       ·       ·
+║  ███  ║   V   ║  ███      V   ║          ███     ███  ║          ███  ║   V       V      ███     ███  ║       ║   V       V   ║
+·       ·       ·       ·═══════·═══════·       ·       ·       ·       ·       ·       ·       ·       ·       ·       ·       ·
+║  ███  ║   V   ║  ███     ███      V   ║       ║   V   ║           V   ║   V   ║       ║   V   ║  ███  ║       ║   V   ║   V   ║
+·       ·       ·═══════·       ·═══════·═══════·       ·═══════·═══════·       ·       ·       ·       ·       ·       ·       ·
+║  ███      V   ║          ███     ███      V   ║       ║   V       V       V   ║       ║   V   ║  ███  ║       ║   V   ║   V   ║
+·       ·       ·       ·═══════·       ·═══════·═══════·       ·═══════·       ·       ·       ·       ·       ·       ·       ·
+║  ███  ║   V   ║                  ███     ███  ║   V   ║                                   V      ███  ║       ║   V       V   ║
+·       ·       ·       ·       ·═══════·       ·       ·═══════·═══════·═══════·═══════·═══════·       ·       ·       ·       ·
+║  ███  ║   V   ║       ║               ║  ███     ███  ║   V       V   ║  ███     ███  ║   V   ║  ███  ║       ║   V   ║   V   ║
+·       ·       ·═══════·═══════·       ·       ·       ·       ·       ·       ·       ·       ·       ·       ·       ·       ·
+║  ███  ║   V       V       V   ║           V   ║  ███     ███  ║  ███     ███  ║  ███     ███     ███  ║       ║   V   ║   V   ║
+·       ·═══════·═══════·       ·═══════·       ·       ·       ·       ·       ·       ·       ·═══════·       ·       ·       ·
+║  ███                  ║   V   ║           V       V   ║  ███     ███  ║   V       V   ║                       ║   V       V   ║
+·       ·═══════·       ·       ·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·       ·
+║  ███  ║       ║       ║   V       V       V       V       V       V       V       V       V       V       V       V       V   ║
+·       ·       ·       ·═══════·═══════·═══════·       ·═══════·═══════·       ·═══════·═══════·═══════·═══════·       ·       ·
+║  ███  ║                                                                                                               ║       ║
+·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·═══════·
+</code></pre></div>
+<h2 id="diferencia-con-mms">Diferencia con MMS</h2>
+<p>El simulador MMS (<code>lib/mmsim_api/mmsim_api.c</code>) se comunica con un GUI externo mediante stdout/stdin. Este simulador standalone (<code>utils/simulator/sim_api.c</code>) lee las paredes de un array interno, permitiendo ejecutar el algoritmo sin necesidad de GUI y sin los retrasos en las comunicaciones, por lo que se pueden obtener los stats de manera rapida y eficaz.</p>
+<p>Ambos usan el mismo flag <code>MMSIM_ENABLED</code> y las mismas funciones <code>API_*</code> definidas en el código de ZoroBot3.</p>
+<h2 id="uso-del-script-de-python-para-pruebas-automaticas">Uso del script de Python para pruebas automáticas</h2>
+<p>El script <code>bulk_run_mazes.py</code> permite ejecutar el simulador sobre una carpeta de laberintos (.map o .txt) y guardar los resultados de distancia y peligrosidad para cada tipo de FloodFill y Explore.</p>
+<h3 id="ejemplo-de-uso">Ejemplo de uso:</h3>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>utils/simulator/bulk_run_mazes.py<span class="w"> </span>&lt;mazes_folder&gt;
+</code></pre></div>
+<ul>
+<li><code>&lt;mazes_folder&gt;</code>: Ruta a la carpeta que contiene los archivos .map o .txt</li>
+</ul>
+<p>El script ejecuta el simulador para cada laberinto y cada tipo de FloodFill (0, 1, 2, 3) y Explore (0, 1, 2), y guarda los resultados en <code>bulk_run_results.txt</code>.</p>
+<p>Ahora el archivo de resultados incluye la peligrosidad de cada recorrido:</p>
+<div class="highlight"><pre><span></span><code>0   1   2   3   p0  p1  p2  p3  maze
+</code></pre></div>
+<p>Donde:
+- <code>0, 1, 2, 3</code>: Distancia total para cada tipo de FloodFill
+- <code>p0, p1, p2, p3</code>: Peligrosidad (%) del recorrido para cada tipo de FloodFill
+- <code>maze</code>: Nombre del laberinto</p>
+<p>La peligrosidad es un porcentaje que estima el riesgo del recorrido según los movimientos realizados (giros, diagonales, concatenaciones peligrosas, etc). Un valor alto indica un recorrido más complejo o arriesgado.</p>
+<h3 id="requisitos">Requisitos:</h3>
+<ul>
+<li>Tener <code>maze_sim.exe</code> (Windows) o <code>maze_sim</code> (Linux) compilado en la carpeta <code>utils/simulator/</code></li>
+<li>Python 3 instalado</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+<footer class="md-footer">
+  <div class="md-footer-meta">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+        Designed by <a href="https://github.com/robotaleh" target="_blank" style="color: #1b176b; font-weight: 700;">@robotaleh</a> &copy; 2024-2026 <a href="https://oprobots.org" target="_blank">OPRobots</a>.
+        Framework made by <a href="https://www.creative-tim.com/" target="_blank">Creative Tim</a>.
+        Documentation built with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank">MkDocs Material</a>.
+      </div>
+      
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.instant", "navigation.top", "toc.follow", "search.highlight", "content.code.copy"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../../assets/js/mermaid-zoom.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,14 +1,13 @@
 # OPROBOTS
 
-Documentación del equipo.
+Documentación técnica del equipo OPROBOTS de robótica.
 
 ## Robots
 
-🤖 Robot A  
-🤖 Robot B
+- [ZoroBot3](ZoroBot3/) — Robot micromouse de altas prestaciones con STM32F4, encoders magnéticos, 4 sensores IR y ventilador de succión. 8 medallas de oro en competiciones internacionales.
 
-## Recursos
+*Más robots próximamente...*
 
-- Electrónica
-- Software
-- Utilidades
+---
+
+Visita nuestra web: [oprobots.org](https://oprobots.org)

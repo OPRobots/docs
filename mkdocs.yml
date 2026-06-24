@@ -1,19 +1,63 @@
 site_name: OPROBOTS Documentation
+site_description: Documentación técnica del equipo OPROBOTS de robótica
+site_author: robotaleh
 site_url: https://docs.oprobots.org
+
+repo_name: OPRobots/docs
 
 theme:
   name: material
+  custom_dir: docs/assets/templates
+  language: es
+  font:
+    text: Roboto
+    code: Roboto Mono
+  palette:
+    - scheme: default
+      primary: white
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Modo oscuro
+    - scheme: slate
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Modo claro
+  features:
+    - navigation.instant
+    - navigation.top
+    - toc.follow
+    - search.highlight
+    - content.code.copy
+  logo: assets/opr_logo.png
+  favicon: assets/imgs/favicon/favicon.ico
+  icon:
+    repo: fontawesome/brands/github
+
+markdown_extensions:
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+extra_javascript:
+  - assets/js/mermaid-zoom.js
+
+extra_css:
+  - assets/css/custom.css
+  - assets/css/mermaid-zoom.css
+
+validation:
+  links:
+    not_found: ignore
 
 plugins:
   - search
   - monorepo
 
 nav:
-
-  - Inicio:
-      - index.md
-
+  - Inicio: index.md
   - Robots:
-      - robots/index.md
-      - ZoroBot3:
-          - robots/ZoroBot3/
+      - ZoroBot3: '!include docs/robots/ZoroBot3/mkdocs.yml'

@@ -1,0 +1,1977 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentación técnica del equipo OPROBOTS de robótica">
+      
+      
+        <meta name="author" content="robotaleh">
+      
+      
+        <link rel="canonical" href="https://docs.oprobots.org/ZoroBot3/07-menu-system/">
+      
+      
+        <link rel="prev" href="../06-control-system/">
+      
+      
+        <link rel="next" href="../08-debug-system/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/imgs/favicon/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+<link rel="apple-touch-icon" sizes="180x180" href="assets/imgs/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/imgs/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/imgs/favicon/favicon-16x16.png">
+<link rel="manifest" href="assets/imgs/favicon/site.webmanifest">
+<link rel="mask-icon" href="assets/imgs/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="assets/imgs/favicon/favicon.ico">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="msapplication-config" content="assets/imgs/favicon/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+    
+      
+        <title>Menú - OPROBOTS Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/css/custom.css">
+    
+      <link rel="stylesheet" href="../../assets/css/mermaid-zoom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="OPROBOTS Documentation">
+<meta property="og:description" content="Documentación técnica del equipo OPROBOTS de robótica">
+<meta property="og:image" content="https://docs.oprobots.org/assets/opr_logo.png">
+<meta property="og:image:width" content="2134">
+<meta property="og:image:height" content="1021">
+<meta property="og:image:alt" content="OPROBOTS — Equipo de robótica">
+<meta name="twitter:card" content="summary_large_image">
+<script>
+(function() {
+  /* Intercept Element.prototype.attachShadow to capture closed shadow roots
+     for Mermaid diagram elements. This MUST run before Material's bundle. */
+  if (window.__mermaidZoomPatched) return;
+  window.__mermaidZoomPatched = true;
+
+  var originalAttachShadow = Element.prototype.attachShadow;
+  var shadowMap = new WeakMap();
+  window.__mermaidShadowMap = shadowMap;
+
+  Element.prototype.attachShadow = function (options) {
+    var shadow = originalAttachShadow.call(this, options);
+    if (this.classList && this.classList.contains("mermaid")) {
+      shadowMap.set(this, shadow);
+    }
+    return shadow;
+  };
+})();
+</script>
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sistema-de-menu" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="OPROBOTS Documentation" class="md-header__button md-logo" aria-label="OPROBOTS Documentation" data-md-component="logo">
+      
+  <img src="../../assets/opr_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OPROBOTS Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Menú
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="custom"  aria-label="Modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="custom"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+<!-- OPRobots subtle link -->
+<div style="text-align: center; padding: 5px 0; font-size: .75rem; background: #fafafa; border-bottom: 1px solid rgba(0,0,0,.06);">
+  <a href="https://oprobots.org" style="color: #1b176b; text-decoration: none; font-weight: 500;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+    ← Volver a OPRobots.org
+  </a>
+</div>
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="OPROBOTS Documentation" class="md-nav__button md-logo" aria-label="OPROBOTS Documentation" data-md-component="logo">
+      
+  <img src="../../assets/opr_logo.png" alt="logo">
+
+    </a>
+    OPROBOTS Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Robots
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Robots
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ZoroBot3
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ZoroBot3
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-hardware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hardware
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-software-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arquitectura Software
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-sensors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sensores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-movement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Movimiento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-floodfill/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Floodfill
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-control-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Control PID
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Menú
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Menú
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#estructura-general" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Estructura General
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Estructura General">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#controles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Controles
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#menu-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Menú RUN
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Menú RUN">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-speed-estrategia-de-velocidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. SPEED (Estrategia de Velocidad)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-race-modo-de-carrera" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. RACE (Modo de Carrera)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-explore_type-tipo-de-floodfill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. EXPLORE_TYPE (Tipo de Floodfill)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-maze_type-tipo-de-laberinto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. MAZE_TYPE (Tipo de Laberinto)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-solve_strategy-estrategia-de-resolucion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. SOLVE_STRATEGY (Estrategia de Resolución)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-explore_algorithm-algoritmo-de-ejecucion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. EXPLORE_ALGORITHM (Algoritmo de Ejecución)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-reset_maze_on_start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. RESET_MAZE_ON_START
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#menu-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Menú CONFIG
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Menú CONFIG">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-calibration-calibracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. CALIBRATION (Calibración)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-debug-modos-de-visualizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. DEBUG (Modos de Visualización)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interaccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interacción
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Interacción">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flujo-en-el-bucle-principal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flujo en el Bucle Principal
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#algoritmos-de-ejecucion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Algoritmos de Ejecución
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Algoritmos de Ejecución">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#handwall-explore_handwall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HandWall (EXPLORE_HANDWALL)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#floodfill-explore_floodfill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FloodFill (EXPLORE_FLOODFILL)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time-trial-explore_time_trial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Time Trial (EXPLORE_TIME_TRIAL)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#drag-race-explore_dragrace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Drag Race (EXPLORE_DRAGRACE)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#control-remoto-rc5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Control Remoto RC5
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-debug-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Debug
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calibración
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-eeprom/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EEPROM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-encoders-gyro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Encoders y Giroscopio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-battery-leds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batería y LEDs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-simulator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Simulador
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-kinematics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cinemática
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-known-issues/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Problemas Conocidos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#estructura-general" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Estructura General
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Estructura General">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#controles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Controles
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#menu-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Menú RUN
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Menú RUN">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-speed-estrategia-de-velocidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. SPEED (Estrategia de Velocidad)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-race-modo-de-carrera" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. RACE (Modo de Carrera)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-explore_type-tipo-de-floodfill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. EXPLORE_TYPE (Tipo de Floodfill)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-maze_type-tipo-de-laberinto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. MAZE_TYPE (Tipo de Laberinto)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-solve_strategy-estrategia-de-resolucion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. SOLVE_STRATEGY (Estrategia de Resolución)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-explore_algorithm-algoritmo-de-ejecucion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. EXPLORE_ALGORITHM (Algoritmo de Ejecución)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-reset_maze_on_start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. RESET_MAZE_ON_START
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#menu-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Menú CONFIG
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Menú CONFIG">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-calibration-calibracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. CALIBRATION (Calibración)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-debug-modos-de-visualizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. DEBUG (Modos de Visualización)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interaccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interacción
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Interacción">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flujo-en-el-bucle-principal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flujo en el Bucle Principal
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#algoritmos-de-ejecucion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Algoritmos de Ejecución
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Algoritmos de Ejecución">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#handwall-explore_handwall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HandWall (EXPLORE_HANDWALL)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#floodfill-explore_floodfill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FloodFill (EXPLORE_FLOODFILL)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time-trial-explore_time_trial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Time Trial (EXPLORE_TIME_TRIAL)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#drag-race-explore_dragrace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Drag Race (EXPLORE_DRAGRACE)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#control-remoto-rc5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Control Remoto RC5
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="sistema-de-menu">Sistema de Menú</h1>
+<h2 id="estructura-general">Estructura General</h2>
+<p>El sistema de menú tiene dos niveles principales, alternados mediante <strong>pulsación larga</strong> del botón MODE:</p>
+<pre class="mermaid"><code>flowchart LR
+    A["MENU_RUN&lt;br&gt;(carrera)"] &lt;--&gt;|"pulsación&lt;br&gt;larga"| B["MENU_CONFIG&lt;br&gt;(debug/cal)"]</code></pre>
+<p>Archivos: <a href="../source_code/src/menu.c"><code>menu.c</code></a>, <a href="../source_code/src/menu_run.c"><code>menu_run.c</code></a>, <a href="../source_code/src/menu_configs.c"><code>menu_configs.c</code></a>.</p>
+<h3 id="controles">Controles</h3>
+<table>
+<thead>
+<tr>
+<th>Botón</th>
+<th>Función</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MODE (pulsación corta)</td>
+<td>Cambiar modo dentro del menú actual</td>
+</tr>
+<tr>
+<td>MODE (pulsación larga)</td>
+<td>Alternar entre RUN y CONFIG</td>
+</tr>
+<tr>
+<td>UP</td>
+<td>Subir valor del modo actual</td>
+</tr>
+<tr>
+<td>DOWN</td>
+<td>Bajar valor del modo actual</td>
+</tr>
+<tr>
+<td>START</td>
+<td>Iniciar carrera (en MENU_RUN)</td>
+</tr>
+<tr>
+<td>DEBUG</td>
+<td>Activar debug (en MENU_CONFIG)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="menu-run">Menú RUN</h2>
+<p>7 modos de configuración para la carrera:</p>
+<h3 id="1-speed-estrategia-de-velocidad">1. SPEED (Estrategia de Velocidad)</h3>
+<table>
+<thead>
+<tr>
+<th>Valor</th>
+<th>Nombre</th>
+<th style="text-align: center;">Velocidad máx</th>
+<th style="text-align: center;">Aceleración</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td><code>SPEED_EXPLORE</code></td>
+<td style="text-align: center;">800 / 3500 mm/s</td>
+<td style="text-align: center;">8000 mm/s²</td>
+</tr>
+<tr>
+<td>1</td>
+<td><code>SPEED_NORMAL</code></td>
+<td style="text-align: center;">3000 mm/s</td>
+<td style="text-align: center;">12000 mm/s²</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>SPEED_MEDIUM</code></td>
+<td style="text-align: center;">5000 mm/s</td>
+<td style="text-align: center;">15000 mm/s²</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>SPEED_FAST</code></td>
+<td style="text-align: center;">5500 mm/s</td>
+<td style="text-align: center;">20000 mm/s²</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>SPEED_SUPER</code></td>
+<td style="text-align: center;">6000 mm/s</td>
+<td style="text-align: center;">25000 mm/s²</td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>SPEED_HAKI</code></td>
+<td style="text-align: center;">6500 mm/s</td>
+<td style="text-align: center;">30000 mm/s²</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Nota: SPEED_EXPLORE usa 800 mm/s en fase de exploración y 3500 mm/s en run.</p>
+</blockquote>
+<h3 id="2-race-modo-de-carrera">2. RACE (Modo de Carrera)</h3>
+<table>
+<thead>
+<tr>
+<th>Valor</th>
+<th>Nombre</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td><code>EXPLORE_SIMPLE</code></td>
+<td>Ir a la meta explorando en el camino</td>
+</tr>
+<tr>
+<td>1</td>
+<td><code>EXPLORE_HOME</code></td>
+<td>Llegar a la meta y volver al inicio</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>EXPLORE_COMPLETE</code></td>
+<td>Explorar TODAS las celdas antes de volver</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-explore_type-tipo-de-floodfill">3. EXPLORE_TYPE (Tipo de Floodfill)</h3>
+<table>
+<thead>
+<tr>
+<th>Valor</th>
+<th>Nombre</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td><code>FLOODFILL_TYPE_BASIC</code></td>
+<td>Coste 1.0 por celda (Manhattan)</td>
+</tr>
+<tr>
+<td>1</td>
+<td><code>FLOODFILL_TYPE_DIAGONAL</code></td>
+<td>Coste 1.0 ortogonal / 0.7 diagonal</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>FLOODFILL_TYPE_TIME</code></td>
+<td>Costes basados en tiempo real con cinemática</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-maze_type-tipo-de-laberinto">4. MAZE_TYPE (Tipo de Laberinto)</h3>
+<table>
+<thead>
+<tr>
+<th>Valor</th>
+<th>Nombre</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td><code>MAZE_HOME</code></td>
+<td>Laberinto de pruebas local</td>
+</tr>
+<tr>
+<td>1</td>
+<td><code>MAZE_COMPETITION</code></td>
+<td>Laberinto de competición</td>
+</tr>
+</tbody>
+</table>
+<h3 id="5-solve_strategy-estrategia-de-resolucion">5. SOLVE_STRATEGY (Estrategia de Resolución)</h3>
+<table>
+<thead>
+<tr>
+<th>Valor</th>
+<th>Nombre</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td><code>SOLVE_STANDARD</code></td>
+<td>Giros estándar (L→LEFT_90, LL→LEFT_180)</td>
+</tr>
+<tr>
+<td>1</td>
+<td><code>SOLVE_DIAGONALS</code></td>
+<td>Optimización con diagonales compuestas</td>
+</tr>
+</tbody>
+</table>
+<h3 id="6-explore_algorithm-algoritmo-de-ejecucion">6. EXPLORE_ALGORITHM (Algoritmo de Ejecución)</h3>
+<table>
+<thead>
+<tr>
+<th>Valor</th>
+<th>Nombre</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td><code>EXPLORE_HANDWALL</code></td>
+<td>Wall follower (mano derecha/izquierda)</td>
+</tr>
+<tr>
+<td>1</td>
+<td><code>EXPLORE_TIME_TRIAL</code></td>
+<td>Carrera contrarreloj</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>EXPLORE_FLOODFILL</code></td>
+<td>Floodfill con exploración y speed run</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>EXPLORE_DRAGRACE</code></td>
+<td>Aceleración máxima en recta</td>
+</tr>
+</tbody>
+</table>
+<h3 id="7-reset_maze_on_start">7. RESET_MAZE_ON_START</h3>
+<p>Controla si el maze se reinicia al comenzar una nueva exploración.</p>
+<hr />
+<h2 id="menu-config">Menú CONFIG</h2>
+<p>2 modos de configuración:</p>
+<h3 id="1-calibration-calibracion">1. CALIBRATION (Calibración)</h3>
+<table>
+<thead>
+<tr>
+<th>Valor</th>
+<th>Nombre</th>
+<th>Función</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td><code>CALIBRATE_NONE</code></td>
+<td>Sin calibración</td>
+</tr>
+<tr>
+<td>1</td>
+<td><code>CALIBRATE_GYRO_Z</code></td>
+<td>Calibrar offset Z del giroscopio</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>CALIBRATE_SIDE_SENSORS_OFFSET</code></td>
+<td>Calibrar offset de sensores laterales</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>CALIBRATE_FRONT_SENSORS</code></td>
+<td>Calibrar sensores frontales</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>CALIBRATE_FRONT_SENSORS_MIDDLE</code></td>
+<td>Calibrar distancia media frontal</td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>CALIBRATE_STORE_EEPROM</code></td>
+<td>Guardar calibraciones en EEPROM</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-debug-modos-de-visualizacion">2. DEBUG (Modos de Visualización)</h3>
+<table>
+<thead>
+<tr>
+<th>Valor</th>
+<th>Modo</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td><code>DEBUG_NONE</code></td>
+<td>Sin debug</td>
+</tr>
+<tr>
+<td>1</td>
+<td><code>DEBUG_MACROARRAY</code></td>
+<td>Imprimir datos de macroarray</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>DEBUG_TYPE_SENSORS</code></td>
+<td>Valores de sensores en vivo</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>DEBUG_ENCODERS</code></td>
+<td>Milímetros de encoders</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>DEBUG_GYRO</code></td>
+<td>Datos del giroscopio</td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>DEBUG_FLOODFILL_MAZE</code></td>
+<td>Imprimir maze con floodfill</td>
+</tr>
+<tr>
+<td>6</td>
+<td><code>DEBUG_MOTORS_CURRENT</code></td>
+<td>Corriente de motores</td>
+</tr>
+<tr>
+<td>7</td>
+<td><code>DEBUG_TIMETRIAL</code></td>
+<td>Demo de time trial</td>
+</tr>
+<tr>
+<td>8</td>
+<td><code>DEBUG_KEEP_FRONT_DISTANCE</code></td>
+<td>Demo de control de distancia frontal</td>
+</tr>
+<tr>
+<td>9</td>
+<td><code>DEBUG_GYRO_DEMO</code></td>
+<td>Demo de estabilización con giroscopio</td>
+</tr>
+<tr>
+<td>10</td>
+<td><code>DEBUG_FAN_DEMO</code></td>
+<td>Demo de ventilador</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="interaccion">Interacción</h2>
+<h3 id="flujo-en-el-bucle-principal">Flujo en el Bucle Principal</h3>
+<div class="highlight"><pre><span></span><code><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">is_race_started</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">menu_handler</span><span class="p">();</span><span class="w">  </span><span class="c1">// Navegación por menú</span>
+
+<span class="w">        </span><span class="c1">// Activar sensores si el menú lo permite</span>
+<span class="w">        </span><span class="n">set_sensors_enabled</span><span class="p">(</span><span class="n">menu_run_can_start</span><span class="p">()</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">is_debug_enabled</span><span class="p">());</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">menu_run_can_start</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Esperar detección de mano en sensores</span>
+<span class="w">            </span><span class="n">sensor_started</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">check_start_run</span><span class="p">();</span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">is_race_started</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="c1">// Iniciar algoritmo seleccionado</span>
+<span class="w">                </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">menu_run_get_explore_algorithm</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">case</span><span class="w"> </span><span class="no">EXPLORE_HANDWALL</span><span class="p">:</span>
+<span class="w">                    </span><span class="n">handwall_start</span><span class="p">();</span>
+<span class="w">                    </span><span class="k">break</span><span class="p">;</span>
+<span class="w">                </span><span class="k">case</span><span class="w"> </span><span class="no">EXPLORE_FLOODFILL</span><span class="p">:</span>
+<span class="w">                    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">sensor_started</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="k">case</span><span class="w"> </span><span class="no">SENSOR_FRONT_LEFT_WALL_ID</span><span class="p">:</span>
+<span class="w">                        </span><span class="n">floodfill_start_run</span><span class="p">();</span>
+<span class="w">                        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">                        </span><span class="k">case</span><span class="w"> </span><span class="no">SENSOR_FRONT_RIGHT_WALL_ID</span><span class="p">:</span>
+<span class="w">                        </span><span class="n">floodfill_start_explore</span><span class="p">();</span>
+<span class="w">                        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                    </span><span class="k">break</span><span class="p">;</span>
+<span class="w">                </span><span class="k">case</span><span class="w"> </span><span class="no">EXPLORE_TIME_TRIAL</span><span class="p">:</span>
+<span class="w">                    </span><span class="n">timetrial_start</span><span class="p">();</span>
+<span class="w">                    </span><span class="k">break</span><span class="p">;</span>
+<span class="w">                </span><span class="k">case</span><span class="w"> </span><span class="no">EXPLORE_DRAGRACE</span><span class="p">:</span>
+<span class="w">                    </span><span class="n">dragrace_start</span><span class="p">();</span>
+<span class="w">                    </span><span class="k">break</span><span class="p">;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Carrera en curso</span>
+<span class="w">        </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">menu_run_get_explore_algorithm</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">EXPLORE_HANDWALL</span><span class="p">:</span>
+<span class="w">            </span><span class="n">handwall_loop</span><span class="p">();</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">EXPLORE_FLOODFILL</span><span class="p">:</span>
+<span class="w">            </span><span class="n">floodfill_loop</span><span class="p">();</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">EXPLORE_TIME_TRIAL</span><span class="p">:</span>
+<span class="w">            </span><span class="n">timetrial_loop</span><span class="p">();</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="algoritmos-de-ejecucion">Algoritmos de Ejecución</h2>
+<h3 id="handwall-explore_handwall">HandWall (<code>EXPLORE_HANDWALL</code>)</h3>
+<ul>
+<li>Wall follower clásico. Sigue la pared con mano izquierda o derecha.</li>
+<li>El sensor que se activa primero determina la mano a usar.</li>
+<li>Simple y robusto para laberintos sin islas.</li>
+<li>Archivos: <a href="../source_code/src/handwall.c"><code>handwall.c</code></a>, <a href="../source_code/include/handwall.h"><code>handwall.h</code></a></li>
+</ul>
+<h3 id="floodfill-explore_floodfill">FloodFill (<code>EXPLORE_FLOODFILL</code>)</h3>
+<ul>
+<li>Navegación inteligente con floodfill.</li>
+<li>Fase 1: Exploración construyendo mapa de paredes.</li>
+<li>Fase 2: Speed run por el camino óptimo.</li>
+<li>Usa el tipo de floodfill, estrategia de solve y velocidad configurados.</li>
+<li>Archivos: <a href="../source_code/src/floodfill.c"><code>floodfill.c</code></a></li>
+</ul>
+<h3 id="time-trial-explore_time_trial">Time Trial (<code>EXPLORE_TIME_TRIAL</code>)</h3>
+<ul>
+<li>Speed run cronometrado en pista predefinida.</li>
+<li>Archivos: <a href="../source_code/src/timetrial.c"><code>timetrial.c</code></a>, <a href="../source_code/include/timetrial.h"><code>timetrial.h</code></a></li>
+</ul>
+<h3 id="drag-race-explore_dragrace">Drag Race (<code>EXPLORE_DRAGRACE</code>)</h3>
+<ul>
+<li>Aceleración máxima en línea recta.</li>
+<li>Sin navegación, solo velocidad.</li>
+<li>Archivos: <a href="../source_code/src/dragrace.c"><code>dragrace.c</code></a>, <a href="../source_code/include/dragrace.h"><code>dragrace.h</code></a></li>
+</ul>
+<hr />
+<h2 id="control-remoto-rc5">Control Remoto RC5</h2>
+<p>El menú puede controlarse remotamente mediante un receptor IR RC5 (38 kHz, TSSP77038TR):</p>
+<div class="highlight"><pre><span></span><code><span class="n">menu_rc5_mode_change</span><span class="p">()</span><span class="w">  </span><span class="err">→</span><span class="w"> </span><span class="n">Cambiar</span><span class="w"> </span><span class="n">modo</span>
+<span class="n">menu_rc5_up</span><span class="p">()</span><span class="w">           </span><span class="err">→</span><span class="w"> </span><span class="n">Subir</span><span class="w"> </span><span class="n">valor</span>
+<span class="n">menu_rc5_down</span><span class="p">()</span><span class="w">         </span><span class="err">→</span><span class="w"> </span><span class="n">Bajar</span><span class="w"> </span><span class="n">valor</span>
+</code></pre></div>
+<p>Los códigos RC5 se almacenan en EEPROM (5 palabras).</p>
+<hr />
+<p><em>Documento generado el 2026-06-12. Ver también <a href="../08-debug-system/">Debug</a>, <a href="../09-calibration/">Calibración</a>, <a href="../02-software-architecture/">Arquitectura Software</a>.</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+<footer class="md-footer">
+  <div class="md-footer-meta">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+        Designed by <a href="https://github.com/robotaleh" target="_blank" style="color: #1b176b; font-weight: 700;">@robotaleh</a> &copy; 2024-2026 <a href="https://oprobots.org" target="_blank">OPRobots</a>.
+        Framework made by <a href="https://www.creative-tim.com/" target="_blank">Creative Tim</a>.
+        Documentation built with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank">MkDocs Material</a>.
+      </div>
+      
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.top", "toc.follow", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/js/mermaid-zoom.js"></script>
+      
+    
+  </body>
+</html>

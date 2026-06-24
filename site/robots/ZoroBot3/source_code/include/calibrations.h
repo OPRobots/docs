@@ -1,0 +1,22 @@
+#ifndef CALIBRATIONS_H
+#define CALIBRATIONS_H
+
+#include <stdint.h>
+
+#include "delay.h"
+#include "eeprom.h"
+#include "lsm6dsr.h"
+#include "move.h"
+#include "sensors.h"
+
+#define CALIBRATE_NONE 0
+#define CALIBRATE_GYRO_Z 1
+#define CALIBRATE_SIDE_SENSORS_OFFSET 2
+#define CALIBRATE_FRONT_SENSORS 3
+#define CALIBRATE_FRONT_SENSORS_MIDDLE 4
+#define CALIBRATE_STORE_EEPROM 5
+
+void calibrate_from_config(uint8_t type);
+void calibrate_manual_distances(void);
+
+#endif
