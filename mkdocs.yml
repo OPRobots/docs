@@ -1,0 +1,19 @@
+site_name: OPROBOTS Documentation
+site_url: https://docs.oprobots.org
+
+theme:
+  name: material
+
+plugins:
+  - search
+  - monorepo
+
+nav:
+
+  - Inicio:
+      - index.md
+
+  - Robots:
+      - robots/index.md
+      - ZoroBot3:
+          - robots/ZoroBot3/
