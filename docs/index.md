@@ -1,6 +1,6 @@
-# OPROBOTS
+# OPRobots
 
-Documentación técnica del equipo OPROBOTS de robótica.
+Documentación técnica del equipo OPRobots de robótica.
 
 ## Robots
 
@@ -10,4 +10,4 @@ Documentación técnica del equipo OPROBOTS de robótica.
 
 ---
 
-Visita nuestra web: [oprobots.org](https://oprobots.org)
+Visita nuestra web: [OPRobots.org](https://oprobots.org)
