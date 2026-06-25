@@ -286,6 +286,7 @@ Actualmente se usan **git submodules** por simplicidad. En el futuro, cuando hay
 
 | Robot | Repositorio | Documentación |
 |-------|-------------|---------------|
+| FujitoraBot2 | [OPRobots/FujitoraBot2](https://github.com/OPRobots/FujitoraBot2) | 13 capítulos: hardware, software, sensores, movimiento, PID, menú, debug, calibración, EEPROM, encoders, batería, cinemática, problemas conocidos |
 | ZoroBot3 | [OPRobots/ZoroBot3](https://github.com/OPRobots/ZoroBot3) | 15 capítulos: hardware, software, sensores, movimiento, floodfill, PID, menú, debug, calibración, EEPROM, encoders, batería, simulador, cinemática, problemas conocidos |
 
 ---

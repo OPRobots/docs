@@ -61,4 +61,5 @@ plugins:
 nav:
   - Inicio: index.md
   - Robots:
+      - FujitoraBot2: '!include docs/robots/FujitoraBot2/mkdocs.yml'
       - ZoroBot3: '!include docs/robots/ZoroBot3/mkdocs.yml'

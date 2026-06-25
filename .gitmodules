@@ -2,3 +2,7 @@
 	path = docs/robots/ZoroBot3
 	url = https://github.com/OPRobots/ZoroBot3
 	branch = develop
+[submodule "docs/robots/FujitoraBot2"]
+	path = docs/robots/FujitoraBot2
+	url = https://github.com/OPRobots/FujitoraBot2.git
+	branch = main
