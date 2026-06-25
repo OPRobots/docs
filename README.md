@@ -282,7 +282,15 @@ Actualmente se usan **git submodules** por simplicidad. En el futuro, cuando hay
 
 ---
 
-## Robots integrados
+## Proyectos integrados
+
+### Módulos
+
+| Proyecto | Repositorio | Documentación |
+|----------|-------------|---------------|
+| IRStart | [OPRobots/IRStart](https://github.com/OPRobots/IRStart) | 7 capítulos: hardware, software, protocolos IR, menú, debug, EEPROM, problemas conocidos |
+
+### Robots
 
 | Robot | Repositorio | Documentación |
 |-------|-------------|---------------|

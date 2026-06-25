@@ -6,3 +6,7 @@
 	path = docs/robots/FujitoraBot2
 	url = https://github.com/OPRobots/FujitoraBot2.git
 	branch = main
+[submodule "docs/modules/IRStart"]
+	path = docs/modules/IRStart
+	url = https://github.com/OPRobots/IRStart.git
+	branch = main
