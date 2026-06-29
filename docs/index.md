@@ -2,6 +2,12 @@
 
 Documentación técnica del equipo OPRobots de robótica.
 
+## Demos
+
+- [CRSF-demo](CRSF-demo/) — Demo de recepción y decodificación del protocolo CRSF (CrossFire) con receptor ELRS y STM32F401
+- [H3LIS331-demo](H3LIS331-demo/) — Demo del acelerómetro de alta G H3LIS331DL (±400g, SPI) con STM32F401 y cinemática MeltyBrain
+- [SRAM-demo](SRAM-demo/) — Demo de ring buffer heterogéneo en SRAM externa 23AA04M (512 KB, SPI) con STM32F401
+
 ## Módulos
 
 - [IRStart](IRStart/) — Sistema de arranque por infrarrojos multi-protocolo (RC5, NEC, SIRC) con mando ESP32-C3 y receptor ATtiny13/85 para competiciones de robótica

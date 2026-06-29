@@ -10,3 +10,15 @@
 	path = docs/modules/IRStart
 	url = https://github.com/OPRobots/IRStart.git
 	branch = main
+[submodule "docs/modules/H3LIS331-demo"]
+	path = docs/demos/H3LIS331-demo
+	url = https://github.com/OPRobots/H3LIS-demo.git
+	branch = main
+[submodule "docs/modules/SRAM-demo"]
+	path = docs/demos/SRAM-demo
+	url = https://github.com/OPRobots/SRAM-demo.git
+	branch = main
+[submodule "docs/modules/CRSF-demo"]
+	path = docs/demos/CRSF-demo
+	url = https://github.com/OPRobots/CRSF-demo.git
+	branch = main

@@ -36,19 +36,27 @@ theme:
     repo: fontawesome/brands/github
 
 markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
+        - name: math
+          class: arithmatex
+          format: !!python/name:pymdownx.arithmatex.fence_generic_format
 
 extra_javascript:
   - assets/js/header-title.js
   - assets/js/mermaid-zoom.js
+  - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js
+  - assets/js/math-render.js
 
 extra_css:
   - assets/css/custom.css
   - assets/css/mermaid-zoom.css
+  - https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css
 
 validation:
   links:
@@ -60,6 +68,10 @@ plugins:
 
 nav:
   - Inicio: index.md
+  - Demos:
+      - CRSF-demo: '!include docs/demos/CRSF-demo/mkdocs.yml'
+      - H3LIS331-demo: '!include docs/demos/H3LIS331-demo/mkdocs.yml'
+      - SRAM-demo: '!include docs/demos/SRAM-demo/mkdocs.yml'
   - Módulos:
       - IRStart: '!include docs/modules/IRStart/mkdocs.yml'
   - Robots:

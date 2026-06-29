@@ -284,6 +284,14 @@ Actualmente se usan **git submodules** por simplicidad. En el futuro, cuando hay
 
 ## Proyectos integrados
 
+### Demos
+
+| Proyecto | Repositorio | Documentación |
+|----------|-------------|---------------|
+| CRSF-demo | [OPRobots/CRSF-demo](https://github.com/OPRobots/CRSF-demo) | 5 capítulos: hardware, software, comunicaciones, debug, problemas conocidos |
+| H3LIS331-demo | [OPRobots/H3LIS-demo](https://github.com/OPRobots/H3LIS-demo) | 5 capítulos: hardware, software, sensores, cinemática, problemas conocidos |
+| SRAM-demo | [OPRobots/SRAM-demo](https://github.com/OPRobots/SRAM-demo) | 4 capítulos: hardware, software, protocolos/API, problemas conocidos |
+
 ### Módulos
 
 | Proyecto | Repositorio | Documentación |
