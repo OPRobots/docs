@@ -74,6 +74,7 @@ nav:
       - SRAM-demo: '!include docs/demos/SRAM-demo/mkdocs.yml'
   - Módulos:
       - IRStart: '!include docs/modules/IRStart/mkdocs.yml'
+      - IRTimer: '!include docs/modules/IRTimer/mkdocs.yml'
   - Robots:
       - FujitoraBot2: '!include docs/robots/FujitoraBot2/mkdocs.yml'
       - ZoroBot3: '!include docs/robots/ZoroBot3/mkdocs.yml'

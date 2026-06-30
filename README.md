@@ -297,6 +297,7 @@ Actualmente se usan **git submodules** por simplicidad. En el futuro, cuando hay
 | Proyecto | Repositorio | Documentación |
 |----------|-------------|---------------|
 | IRStart | [OPRobots/IRStart](https://github.com/OPRobots/IRStart) | 7 capítulos: hardware, software, protocolos IR, menú, debug, EEPROM, problemas conocidos |
+| IRTimer | [OPRobots/IRTimer](https://github.com/OPRobots/IRTimer) | 8 capítulos: hardware, arquitectura software, comunicaciones, sensores, menú, debug, batería y LEDs, problemas conocidos |
 
 ### Robots
 

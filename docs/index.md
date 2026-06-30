@@ -11,6 +11,7 @@ Documentación técnica del equipo OPRobots de robótica.
 ## Módulos
 
 - [IRStart](IRStart/) — Sistema de arranque por infrarrojos multi-protocolo (RC5, NEC, SIRC) con mando ESP32-C3 y receptor ATtiny13/85 para competiciones de robótica
+- [IRTimer](IRTimer/) — Cronómetro inalámbrico dual-mode (Micromouse + LineFollower) con ESP32-C3, pantalla TFT, WiFi/ESP-NOW y sincronización IR
 
 ## Robots
 

@@ -22,3 +22,7 @@
 	path = docs/demos/CRSF-demo
 	url = https://github.com/OPRobots/CRSF-demo.git
 	branch = main
+[submodule "docs/modules/IRTimer"]
+	path = docs/modules/IRTimer
+	url = https://github.com/OPRobots/IRTimer
+	branch = main
