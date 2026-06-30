@@ -68,6 +68,8 @@ plugins:
 
 nav:
   - Inicio: index.md
+  - Boards:
+      - OPRcontrolFOC: '!include docs/boards/OPRcontrolFOC/mkdocs.yml'
   - Demos:
       - CRSF-demo: '!include docs/demos/CRSF-demo/mkdocs.yml'
       - H3LIS331-demo: '!include docs/demos/H3LIS331-demo/mkdocs.yml'
@@ -77,4 +79,5 @@ nav:
       - IRTimer: '!include docs/modules/IRTimer/mkdocs.yml'
   - Robots:
       - FujitoraBot2: '!include docs/robots/FujitoraBot2/mkdocs.yml'
+      - UltiBot: '!include docs/robots/UltiBot/mkdocs.yml'
       - ZoroBot3: '!include docs/robots/ZoroBot3/mkdocs.yml'

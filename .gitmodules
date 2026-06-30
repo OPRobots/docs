@@ -26,3 +26,11 @@
 	path = docs/modules/IRTimer
 	url = https://github.com/OPRobots/IRTimer
 	branch = main
+[submodule "docs/boards/OPRcontrolFOC"]
+	path = docs/boards/OPRcontrolFOC
+	url = https://github.com/OPRobots/OPRcontrolFOC.git
+	branch = main
+[submodule "docs/robots/UltiBot"]
+	path = docs/robots/UltiBot
+	url = https://github.com/OPRobots/UltiBot.git
+	branch = main

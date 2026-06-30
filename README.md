@@ -284,6 +284,12 @@ Actualmente se usan **git submodules** por simplicidad. En el futuro, cuando hay
 
 ## Proyectos integrados
 
+### Boards
+
+| Proyecto      | Repositorio                                                          | Documentación                                                                                                      |
+|---------------|----------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|
+| OPRcontrolFOC | [OPRobots/OPRcontrolFOC](https://github.com/OPRobots/OPRcontrolFOC)  | 9 capítulos: hardware, arquitectura software, comunicaciones, movimiento, control PID, encoders, debug, problemas conocidos |
+
 ### Demos
 
 | Proyecto | Repositorio | Documentación |
@@ -304,6 +310,7 @@ Actualmente se usan **git submodules** por simplicidad. En el futuro, cuando hay
 | Robot | Repositorio | Documentación |
 |-------|-------------|---------------|
 | FujitoraBot2 | [OPRobots/FujitoraBot2](https://github.com/OPRobots/FujitoraBot2) | 13 capítulos: hardware, software, sensores, movimiento, PID, menú, debug, calibración, EEPROM, encoders, batería, cinemática, problemas conocidos |
+| UltiBot      | [OPRobots/UltiBot](https://github.com/OPRobots/UltiBot)            | 13 capítulos: hardware, arquitectura software, comunicaciones, sensores, movimiento, control, menú, debug, almacenamiento, encoders, batería y LEDs, problemas conocidos |
 | ZoroBot3 | [OPRobots/ZoroBot3](https://github.com/OPRobots/ZoroBot3) | 15 capítulos: hardware, software, sensores, movimiento, floodfill, PID, menú, debug, calibración, EEPROM, encoders, batería, simulador, cinemática, problemas conocidos |
 
 ---
